@@ -55,10 +55,9 @@ h1 { text-align:center; }
     text-align:center;
     border-radius:6px;
     cursor:pointer;
-    border:none;
 }
 
-/* QR MODAL */
+/* MODAL */
 .modal {
     display:none;
     position:fixed;
@@ -66,7 +65,7 @@ h1 { text-align:center; }
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.7);
+    background:rgba(0,0,0,0.75);
     justify-content:center;
     align-items:center;
 }
@@ -77,12 +76,15 @@ h1 { text-align:center; }
     border-radius:10px;
     width:320px;
     text-align:center;
+    position:relative;
 }
 
 .close {
-    float:right;
+    position:absolute;
+    right:10px;
+    top:5px;
     cursor:pointer;
-    font-size:20px;
+    font-size:22px;
 }
 
 .qr-img {
@@ -95,7 +97,7 @@ h1 { text-align:center; }
 
 <body>
 
-<!-- BACK FIX -->
+<!-- BACK SAFE FIX -->
 <a href="index.html" class="back-btn">← Back</a>
 
 <div class="container">
@@ -148,18 +150,17 @@ h1 { text-align:center; }
 </div>
 </div>
 
-<!-- QR POPUP -->
-<div id="qrModal" class="modal">
+<!-- QR MODAL -->
+<div id="qrModal" class="modal" onclick="outsideClose(event)">
 <div class="modal-content">
 
 <span class="close" onclick="closeQR()">&times;</span>
 
 <h2 id="rankName">Scan & Pay</h2>
+<p>Pay using UPI app</p>
 
-<p>Use UPI to complete payment</p>
-
-<!-- ✅ YOUR QR CODE IMAGE -->
-<img class="qr-img" src="/mnt/data/WhatsApp Image 2026-04-28 at 3.05.42 PM.jpeg" alt="QR Code">
+<!-- ⚠️ IMPORTANT: move QR to images folder -->
+<img class="qr-img" src="images/qr.png">
 
 </div>
 </div>
@@ -173,6 +174,19 @@ function openQR(rank) {
 function closeQR() {
     document.getElementById("qrModal").style.display = "none";
 }
+
+/* click outside modal closes */
+function outsideClose(e) {
+    if(e.target.id === "qrModal") {
+        closeQR();
+    }
+}
+
+/* safe back */
+document.querySelector(".back-btn").addEventListener("click", function(e){
+    e.preventDefault();
+    window.location.href = "index.html";
+});
 </script>
 
 </body>
