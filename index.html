@@ -11,20 +11,18 @@
       background: black;
     }
 
-    /* BACKGROUND IMAGE */
     body::before {
       content: "";
       position: fixed;
       width: 100%;
       height: 100%;
       background: url("https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png") no-repeat center/cover;
-      background-size: 120%; /* zoom a bit for style */
-      filter: brightness(0.2) blur(2px); /* darker + blur for modern look */
+      background-size: 120%;
+      filter: brightness(0.2) blur(2px);
       z-index: -2;
       transition: background 0.5s;
     }
 
-    /* PARTICLES CANVAS */
     canvas#particles {
       position: fixed;
       top: 0;
@@ -32,7 +30,6 @@
       z-index: -1;
     }
 
-    /* NAVBAR */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -58,7 +55,6 @@
       color: #ff6a00;
     }
 
-    /* HERO */
     .hero {
       text-align: center;
       margin-top: 120px;
@@ -75,7 +71,6 @@
       margin-bottom: 30px;
     }
 
-    /* IP BOX */
     .ip-box {
       display: inline-block;
       padding: 20px 40px;
@@ -101,7 +96,6 @@
       color: #aaa;
     }
 
-    /* BUTTONS */
     .hero-buttons {
       margin-top: 30px;
     }
@@ -122,7 +116,6 @@
       background: #ff8533;
     }
 
-    /* POPUP */
     .popup {
       display: none;
       position: fixed;
@@ -158,7 +151,6 @@
 
 <canvas id="particles"></canvas>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <div class="logo">🔥 FBVerse</div>
   <div class="nav-links">
@@ -168,7 +160,6 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <h1>Fire Blaze Verse</h1>
   <p>The Ultimate Minecraft Experience</p>
@@ -184,7 +175,6 @@
   </div>
 </section>
 
-<!-- POPUP -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close" onclick="closePopup()">×</span>
@@ -194,19 +184,17 @@
 </div>
 
 <script>
-  // COPY IP
   function copyIP() {
     const ip = "mc.fireblazeverse.ooguy.com:27583";
     navigator.clipboard.writeText(ip);
     alert("IP Copied: " + ip);
   }
 
-  // REDIRECT
+  // ✅ FIXED HERE
   function rank() {
-    window.location.href = "https://fbverse.page.gd";
+    window.location.href = "ranks.html";
   }
 
-  // POPUP
   function openPopup(type) {
     const title = document.getElementById("popupTitle");
     const text = document.getElementById("popupText");
@@ -228,7 +216,6 @@
     document.getElementById("popup").style.display = "none";
   }
 
-  // PARTICLES
   const canvas = document.getElementById("particles");
   const ctx = canvas.getContext("2d");
 
@@ -268,7 +255,6 @@
 
   setInterval(drawParticles, 30);
 
-  // RESIZE
   window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
