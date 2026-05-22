@@ -154,3 +154,119 @@
     }
   </style>
 </head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<header class="navbar">
+  <div class="logo">🔥 FBVerse</div>
+  <div class="nav-links">
+    <a href="#" onclick="openPopup('join')">How to Join</a>
+    <a href="#" onclick="openPopup('modes')">Game Modes</a>
+    <a href="#" onclick="rank()">Rank</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Fire Blaze Verse</h1>
+  <p>The Ultimate Minecraft Experience</p>
+
+  <div class="ip-box" onclick="copyIP()">
+    <div class="ip">mc.fireblazeverse.ooguy.com:27583</div>
+    <span>Click to Copy IP</span>
+  </div>
+
+  <div class="hero-buttons">
+    <button onclick="openPopup('join')">▶ Play Now</button>
+    <button onclick="rank()">🏆 Rank</button>
+  </div>
+</section>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">×</span>
+    <h2 id="popupTitle"></h2>
+    <p id="popupText"></p>
+  </div>
+</div>
+
+<script>
+  function copyIP() {
+    const ip = "mc.fireblazeverse.ooguy.com:27583";
+    navigator.clipboard.writeText(ip);
+    alert("IP Copied: " + ip);
+  }
+
+  function rank() {
+    window.location.href = "ranks.html";
+  }
+
+  function openPopup(type) {
+    const title = document.getElementById("popupTitle");
+    const text = document.getElementById("popupText");
+
+    if (type === "join") {
+      title.innerText = "How to Join";
+      text.innerText = "Java: Multiplayer → Add Server → Join\nBedrock: Servers → Add Server";
+    }
+
+    if (type === "modes") {
+      title.innerText = "Game Modes";
+      text.innerText = "🔥 Survival SMP\n⚔ Lifesteal PvP\n🎮 More soon";
+    }
+
+    document.getElementById("popup").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  const canvas = document.getElementById("particles");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2,
+      d: Math.random() * 1
+    });
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "orange";
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    updateParticles();
+  }
+
+  function updateParticles() {
+    particles.forEach(p => {
+      p.y += p.d;
+      if (p.y > canvas.height) {
+        p.y = 0;
+        p.x = Math.random() * canvas.width;
+      }
+    });
+  }
+
+  setInterval(drawParticles, 30);
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>
