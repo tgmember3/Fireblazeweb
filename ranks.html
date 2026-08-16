@@ -1,202 +1,989 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Fireblaze Shop</title>
-</head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FireBlaze Shop</title>
 
-<!-- Google AdSense Verification -->
+<title>Fire Blaze Verse — Ranks</title>
+
 <meta name="google-adsense-account" content="ca-pub-5709038508572445">
 
-<!-- Google AdSense Script -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5709038508572445"
-     crossorigin="anonymous"></script>
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5709038508572445"
+crossorigin="anonymous"></script>
 
 <style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin:0;
-    background: linear-gradient(135deg, #0f1115, #1a1a1a);
-    color:#fff;
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: white;
+    background: #050505;
+    overflow-x: hidden;
 }
 
-.back-btn { 
-    display:inline-block; 
-    margin:20px; 
-    padding:8px 14px; 
-    background:#2a2f3a; 
-    color:#fff; 
-    border-radius:8px; 
-    text-decoration:none; 
-}
-.back-btn:hover { background:#3b82f6; }
+/* =========================
+   CINEMATIC BACKGROUND
+========================= */
 
-.container { max-width:1000px; margin:auto; padding:10px; }
-h1 { text-align:center; }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
 
-.ranks { 
-    display:grid; 
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); 
-    gap:20px; 
-}
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,0,0,.94),
+            rgba(35,10,0,.78),
+            rgba(0,0,0,.96)
+        ),
+        url("https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png")
+        center / cover no-repeat;
 
-.rank-box { 
-    background:#1f232b; 
-    padding:15px; 
-    border-radius:10px; 
-    display:flex;
-    flex-direction:column;
+    filter: blur(2px);
+    transform: scale(1.04);
+
+    z-index: -5;
 }
 
-.rank-box img { width:100%; border-radius:8px; }
-.rank-box h2 { text-align:center; color:#ffd700; }
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
 
-.rank-box ul { list-style:none; padding:0; }
-.rank-box ul li { margin:5px 0; }
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,106,0,.18),
+            transparent 45%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.2),
+            rgba(0,0,0,.9)
+        );
+
+    z-index: -4;
+    pointer-events: none;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -3;
+    pointer-events: none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 17px 6%;
+
+    background: rgba(5,5,5,.62);
+    border-bottom: 1px solid rgba(255,106,0,.16);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 900;
+
+    text-shadow:
+        0 0 15px rgba(255,106,0,.65);
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 15px;
+
+    color: #ddd;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 9px;
+
+    background: rgba(255,255,255,.05);
+
+    transition: .3s;
+}
+
+.back-btn:hover {
+    color: white;
+
+    border-color: rgba(255,106,0,.45);
+
+    background: rgba(255,106,0,.1);
+
+    transform: translateX(-3px);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+
+    padding: 65px 20px 35px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 15px;
+
+    border-radius: 999px;
+
+    background: rgba(255,106,0,.08);
+    border: 1px solid rgba(255,106,0,.3);
+
+    color: #ff9b5a;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ff6a00;
+
+    box-shadow:
+        0 0 12px #ff6a00;
+
+    animation: blink 1.3s infinite;
+}
+
+.header h1 {
+    margin: 20px 0 8px;
+
+    font-size: clamp(42px, 7vw, 70px);
+
+    font-weight: 950;
+
+    letter-spacing: -2px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff,
+            #ffb36d,
+            #ff6a00
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 0 40px rgba(255,106,0,.15);
+}
+
+.header p {
+    margin: 0 auto;
+
+    max-width: 600px;
+
+    color: #999;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* =========================
+   SHOP
+========================= */
+
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+.ranks {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 22px;
+}
+
+/* =========================
+   RANK CARD
+========================= */
+
+.rank-box {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 390px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27,27,27,.88),
+            rgba(7,7,7,.78)
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.4);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.rank-box:hover {
+    transform: translateY(-9px);
+
+    border-color: rgba(255,106,0,.42);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 35px rgba(255,106,0,.1);
+}
+
+/* orange top line */
+
+.rank-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+    right: 15%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff6a00,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px #ff6a00;
+
+    opacity: .7;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.rank-image {
+    position: relative;
+
+    width: 100%;
+    height: 190px;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+.rank-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(7,7,7,.95),
+            transparent 60%
+        );
+}
+
+.rank-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+.rank-box:hover img {
+    transform: scale(1.08);
+
+    filter:
+        brightness(1.12)
+        saturate(1.15);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.rank-content {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 20px;
+}
+
+.rank-box h2 {
+    margin: 0 0 7px;
+
+    text-align: center;
+
+    font-size: 23px;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 15px rgba(255,106,0,.2);
+}
+
+.price {
+    text-align: center;
+
+    margin-bottom: 17px;
+
+    font-size: 25px;
+    font-weight: 900;
+
+    color: #ff7620;
+
+    text-shadow:
+        0 0 15px rgba(255,106,0,.35);
+}
+
+.features {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+.features li {
+    padding: 3px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.035);
+}
+
+.features li::before {
+    content: "✦";
+
+    margin-right: 8px;
+
+    color: #ff6a00;
+}
+
+/* =========================
+   COMING SOON BUTTON
+========================= */
 
 .purchase-btn {
-    margin-top:auto;
-    padding:10px;
-    background:#3b82f6;
-    color:#fff;
-    text-align:center;
-    border-radius:6px;
-    cursor:pointer;
+    margin-top: auto;
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,106,0,.18);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,106,0,.12),
+            rgba(255,106,0,.05)
+        );
+
+    color: #ff9655;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    text-align: center;
+
+    cursor: not-allowed;
+
+    opacity: .78;
+
+    transition: .3s;
 }
 
-/* MODAL */
-.modal {
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.75);
-    justify-content:center;
-    align-items:center;
+.purchase-btn:hover {
+    border-color: rgba(255,106,0,.35);
+
+    box-shadow:
+        0 0 20px rgba(255,106,0,.08);
 }
 
-.modal-content {
-    background:#1f232b;
-    padding:20px;
-    border-radius:10px;
-    width:320px;
-    text-align:center;
-    position:relative;
+/* =========================
+   MAINTENANCE NOTICE
+========================= */
+
+.notice {
+    width: min(700px, 100%);
+
+    margin: 45px auto 0;
+
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-radius: 14px;
+
+    background: rgba(255,106,0,.06);
+
+    border: 1px solid rgba(255,106,0,.2);
+
+    color: #aaa;
+
+    text-align: center;
+
+    font-size: 13px;
 }
 
-.close {
-    position:absolute;
-    right:10px;
-    top:5px;
-    cursor:pointer;
-    font-size:22px;
+.notice strong {
+    color: #ff7620;
 }
 
-.qr-img {
-    width:100%;
-    border-radius:10px;
-    margin-top:10px;
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 12px;
+
+    border-top: 1px solid rgba(255,255,255,.05);
+
+    background: rgba(0,0,0,.35);
 }
+
+.footer strong {
+    color: #ff6a00;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes blink {
+    0%,100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .3;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    .navbar {
+        padding: 14px 18px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .header {
+        padding-top: 48px;
+    }
+
+    .header h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .container {
+        width: 91%;
+    }
+
+    .ranks {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .rank-box {
+        min-height: 370px;
+    }
+
+    .rank-image {
+        height: 200px;
+    }
+
+    .notice {
+        flex-direction: column;
+        padding: 17px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- BACK SAFE FIX -->
-<a href="index.html" class="back-btn">← Back</a>
+<canvas id="particles"></canvas>
 
-<div class="container">
-<h1>FireBlaze Shop</h1>
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🔥 Fire Blaze Verse
+    </div>
+
+    <a href="index.html" class="back-btn">
+        ← Back Home
+    </a>
+
+</header>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<section class="header">
+
+    <div class="badge">
+        <span class="badge-dot"></span>
+        Fire Blaze Shop
+    </div>
+
+    <h1>Choose Your Clan</h1>
+
+    <p>
+        Upgrade your Fire Blaze Verse experience
+        and unlock exclusive clan ranks.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     RANKS
+========================= -->
+
+<main class="container">
 
 <div class="ranks">
 
-<div class="rank-box">
-<img src="images/dirt.jpg">
-<h2>Dirt Clan</h2>
-<ul><li>₹29</li></ul>
-<div class="purchase-btn" onclick="openQR('Dirt Clan')">Buy</div>
+
+    <!-- DIRT -->
+
+    <div class="rank-box">
+
+        <div class="rank-image">
+            <img src="images/dirt.jpg" alt="Dirt Clan">
+        </div>
+
+        <div class="rank-content">
+
+            <h2>Dirt Clan</h2>
+
+            <div class="price">
+                ₹29
+            </div>
+
+            <ul class="features">
+                <li>Clan Rank</li>
+                <li>Exclusive Prefix</li>
+                <li>Special Chat Tag</li>
+            </ul>
+
+            <div class="purchase-btn">
+                🚧 Coming Soon
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- COPPER -->
+
+    <div class="rank-box">
+
+        <div class="rank-image">
+            <img src="images/copper.jpg" alt="Copper Clan">
+        </div>
+
+        <div class="rank-content">
+
+            <h2>Copper Clan</h2>
+
+            <div class="price">
+                ₹59
+            </div>
+
+            <ul class="features">
+                <li>Clan Rank</li>
+                <li>Exclusive Prefix</li>
+                <li>Special Chat Tag</li>
+            </ul>
+
+            <div class="purchase-btn">
+                🚧 Coming Soon
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- IRON -->
+
+    <div class="rank-box">
+
+        <div class="rank-image">
+            <img src="images/iron.jpg" alt="Iron Clan">
+        </div>
+
+        <div class="rank-content">
+
+            <h2>Iron Clan</h2>
+
+            <div class="price">
+                ₹89
+            </div>
+
+            <ul class="features">
+                <li>Premium Clan Rank</li>
+                <li>Exclusive Prefix</li>
+                <li>Special Chat Tag</li>
+            </ul>
+
+            <div class="purchase-btn">
+                🚧 Coming Soon
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- GOLD -->
+
+    <div class="rank-box">
+
+        <div class="rank-image">
+            <img src="images/gold.jpg" alt="Gold Clan">
+        </div>
+
+        <div class="rank-content">
+
+            <h2>Gold Clan</h2>
+
+            <div class="price">
+                ₹159
+            </div>
+
+            <ul class="features">
+                <li>Premium Clan Rank</li>
+                <li>Exclusive Prefix</li>
+                <li>Special Chat Tag</li>
+            </ul>
+
+            <div class="purchase-btn">
+                🚧 Coming Soon
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DIAMOND -->
+
+    <div class="rank-box">
+
+        <div class="rank-image">
+            <img src="images/diamond.jpg" alt="Diamond Clan">
+        </div>
+
+        <div class="rank-content">
+
+            <h2>Diamond Clan</h2>
+
+            <div class="price">
+                ₹299
+            </div>
+
+            <ul class="features">
+                <li>Elite Clan Rank</li>
+                <li>Exclusive Prefix</li>
+                <li>Special Chat Tag</li>
+            </ul>
+
+            <div class="purchase-btn">
+                🚧 Coming Soon
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NETHERITE -->
+
+    <div class="rank-box">
+
+        <div class="rank-image">
+            <img src="images/netherite.jpg" alt="Netherite Clan">
+        </div>
+
+        <div class="rank-content">
+
+            <h2>Netherite Clan</h2>
+
+            <div class="price">
+                ₹1999
+            </div>
+
+            <ul class="features">
+                <li>Ultimate Clan Rank</li>
+                <li>Exclusive Prefix</li>
+                <li>Special Chat Tag</li>
+            </ul>
+
+            <div class="purchase-btn">
+                🚧 Coming Soon
+            </div>
+
+        </div>
+
+    </div>
+
+
 </div>
 
-<div class="rank-box">
-<img src="images/copper.jpg">
-<h2>Copper Clan</h2>
-<ul><li>₹59</li></ul>
-<div class="purchase-btn" onclick="openQR('Copper Clan')">Buy</div>
-</div>
 
-<div class="rank-box">
-<img src="images/iron.jpg">
-<h2>Iron Clan</h2>
-<ul><li>₹89</li></ul>
-<div class="purchase-btn" onclick="openQR('Iron Clan')">Buy</div>
-</div>
+<!-- NOTICE -->
 
-<div class="rank-box">
-<img src="images/gold.jpg">
-<h2>Gold Clan</h2>
-<ul><li>₹159</li></ul>
-<div class="purchase-btn" onclick="openQR('Gold Clan')">Buy</div>
-</div>
+<div class="notice">
 
-<div class="rank-box">
-<img src="images/diamond.jpg">
-<h2>Diamond Clan</h2>
-<ul><li>₹299</li></ul>
-<div class="purchase-btn" onclick="openQR('Diamond Clan')">Buy</div>
-</div>
+    🚧
 
-<div class="rank-box">
-<img src="images/netherite.jpg">
-<h2>Netherite Clan</h2>
-<ul><li>₹1999</li></ul>
-<div class="purchase-btn" onclick="openQR('Netherite Clan')">Buy</div>
-</div>
+    <span>
+        <strong>Rank purchases are currently unavailable.</strong>
+        The Fire Blaze Verse store will open with the server launch.
+    </span>
 
 </div>
-</div>
 
-<!-- QR MODAL -->
-<div id="qrModal" class="modal" onclick="outsideClose(event)">
-<div class="modal-content">
+</main>
 
-<span class="close" onclick="closeQR()">&times;</span>
 
-<h2 id="rankName">Scan & Pay</h2>
-<p>Pay using UPI app</p>
+<!-- =========================
+     FOOTER
+========================= -->
 
-<!-- ⚠️ IMPORTANT: move QR to images folder -->
-<img class="qr-img" src="images/qr.png">
+<footer class="footer">
 
-</div>
-</div>
+    © 2026 <strong>Fire Blaze Verse</strong>
+    • All Rights Reserved
+
+</footer>
+
 
 <script>
-function openQR(rank) {
-    document.getElementById("qrModal").style.display = "flex";
-    document.getElementById("rankName").innerText = rank + " Payment";
+
+/* =========================
+   PARTICLES
+========================= */
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas() {
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
 }
 
-function closeQR() {
-    document.getElementById("qrModal").style.display = "none";
-}
+resizeCanvas();
 
-/* click outside modal closes */
-function outsideClose(e) {
-    if(e.target.id === "qrModal") {
-        closeQR();
+
+function createParticles() {
+
+    particles = [];
+
+    const amount =
+        window.innerWidth < 600 ? 40 : 85;
+
+    for (let i = 0; i < amount; i++) {
+
+        particles.push({
+
+            x: Math.random() * canvas.width,
+
+            y: Math.random() * canvas.height,
+
+            r: Math.random() * 2 + .3,
+
+            speed: Math.random() * .7 + .15,
+
+            drift: (Math.random() - .5) * .25,
+
+            opacity: Math.random() * .6 + .15
+
+        });
+
     }
+
 }
 
-/* safe back */
-document.querySelector(".back-btn").addEventListener("click", function(e){
-    e.preventDefault();
-    window.location.href = "index.html";
+createParticles();
+
+
+function drawParticles() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach(p => {
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.r,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            `rgba(255,120,30,${p.opacity})`;
+
+        ctx.shadowBlur = 10;
+        ctx.shadowColor =
+            "rgba(255,90,0,.5)";
+
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+
+        p.y -= p.speed;
+        p.x += p.drift;
+
+        if (p.y < -10) {
+
+            p.y = canvas.height + 10;
+            p.x = Math.random() * canvas.width;
+
+        }
+
+        if (p.x < -10)
+            p.x = canvas.width + 10;
+
+        if (p.x > canvas.width + 10)
+            p.x = -10;
+
+    });
+
+    requestAnimationFrame(drawParticles);
+
+}
+
+drawParticles();
+
+
+window.addEventListener("resize", () => {
+
+    resizeCanvas();
+    createParticles();
+
 });
+
 </script>
 
 </body>
