@@ -4,14 +4,19 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Fire Blaze Verse | Coming Soon</title>
 
 <meta name="google-adsense-account"
 content="ca-pub-5709038508572445">
 
-<!-- Google AdSense -->
+<!-- =========================
+     GOOGLE ADSENSE
+========================= -->
+
 <script async
 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5709038508572445"
 crossorigin="anonymous"></script>
@@ -26,19 +31,15 @@ if (!window.AdButler) {
 
     (function () {
 
-        var s =
-            document.createElement("script");
+        var s = document.createElement("script");
 
         s.async = true;
 
-        s.type =
-            "text/javascript";
+        s.type = "text/javascript";
 
-        s.src =
-            "https://servedbyadbutler.com/app.js";
+        s.src = "https://servedbyadbutler.com/app.js";
 
-        var n =
-            document.getElementsByTagName("script")[0];
+        var n = document.getElementsByTagName("script")[0];
 
         n.parentNode.insertBefore(s, n);
 
@@ -50,11 +51,9 @@ if (!window.AdButler) {
 
 <script>
 
-var AdButler =
-    AdButler || {};
+var AdButler = AdButler || {};
 
-AdButler.ads =
-    AdButler.ads || [];
+AdButler.ads = AdButler.ads || [];
 
 AdButler.ads.push(function () {
 
@@ -101,6 +100,7 @@ body {
     background: #030303;
 
     overflow-x: hidden;
+
 }
 
 
@@ -130,12 +130,12 @@ body::before {
 
     filter:
         blur(2px)
-        brightness(.75);
+        brightness(.72);
 
-    transform:
-        scale(1.05);
+    transform: scale(1.05);
 
     z-index: -5;
+
 }
 
 
@@ -158,12 +158,13 @@ body::after {
         linear-gradient(
             to bottom,
             transparent,
-            rgba(0,0,0,.9)
+            rgba(0,0,0,.92)
         );
 
     z-index: -4;
 
     pointer-events: none;
+
 }
 
 
@@ -184,6 +185,7 @@ body::after {
     z-index: -3;
 
     pointer-events: none;
+
 }
 
 
@@ -205,11 +207,10 @@ body::after {
 
     justify-content: space-between;
 
-    padding:
-        17px 6%;
+    padding: 17px 6%;
 
     background:
-        rgba(5,5,5,.62);
+        rgba(5,5,5,.65);
 
     border-bottom:
         1px solid
@@ -220,6 +221,7 @@ body::after {
 
     -webkit-backdrop-filter:
         blur(18px);
+
 }
 
 
@@ -234,6 +236,7 @@ body::after {
     text-shadow:
         0 0 18px
         rgba(255,106,0,.7);
+
 }
 
 
@@ -244,10 +247,13 @@ body::after {
     align-items: center;
 
     gap: 23px;
+
 }
 
 
 .nav-links a {
+
+    position: relative;
 
     color: #aaa;
 
@@ -259,7 +265,13 @@ body::after {
 
     transition: .3s;
 
-    position: relative;
+}
+
+
+.nav-links a:hover {
+
+    color: white;
+
 }
 
 
@@ -284,12 +296,6 @@ body::after {
         #ff6a00;
 
     transition: .3s;
-}
-
-
-.nav-links a:hover {
-
-    color: white;
 
 }
 
@@ -324,6 +330,7 @@ body::after {
         50px 20px 80px;
 
     position: relative;
+
 }
 
 
@@ -333,9 +340,9 @@ body::after {
 
 .fire-icon {
 
-    width: 75px;
+    width: 78px;
 
-    height: 75px;
+    height: 78px;
 
     display: flex;
 
@@ -352,9 +359,9 @@ body::after {
         1px solid
         rgba(255,106,0,.3);
 
-    font-size: 37px;
+    font-size: 39px;
 
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 
     box-shadow:
         0 0 45px
@@ -362,6 +369,7 @@ body::after {
 
     animation:
         floating 3s ease-in-out infinite;
+
 }
 
 
@@ -412,12 +420,9 @@ body::after {
 
     color: transparent;
 
-    text-shadow:
-        0 0 40px
-        rgba(255,106,0,.12);
-
     animation:
         titleIn .9s ease;
+
 }
 
 
@@ -447,10 +452,10 @@ body::after {
 
 
 /* =========================
-   SUBTITLE
+   DESCRIPTION
 ========================= */
 
-.hero p {
+.hero > p {
 
     max-width: 650px;
 
@@ -462,6 +467,7 @@ body::after {
     font-size: 16px;
 
     line-height: 1.7;
+
 }
 
 
@@ -472,15 +478,15 @@ body::after {
 .maintenance {
 
     width:
-        min(600px, 100%);
+        min(620px, 100%);
 
     padding:
-        27px 25px;
+        29px 25px;
 
     margin:
-        10px auto 25px;
+        10px auto 28px;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
     background:
 
@@ -497,7 +503,7 @@ body::after {
     box-shadow:
 
         0 20px 60px
-        rgba(0,0,0,.4),
+        rgba(0,0,0,.45),
 
         0 0 35px
         rgba(255,106,0,.08);
@@ -507,6 +513,7 @@ body::after {
 
     animation:
         cardIn .8s ease;
+
 }
 
 
@@ -535,12 +542,13 @@ body::after {
 
 .maintenance-icon {
 
-    font-size: 30px;
+    font-size: 31px;
 
-    margin-bottom: 9px;
+    margin-bottom: 10px;
 
     animation:
         blink 1.5s infinite;
+
 }
 
 
@@ -559,7 +567,8 @@ body::after {
 
 .maintenance h2 {
 
-    margin: 0 0 8px;
+    margin:
+        0 0 9px;
 
     font-size:
         clamp(21px, 5vw, 30px);
@@ -569,6 +578,7 @@ body::after {
     text-shadow:
         0 0 20px
         rgba(255,106,0,.4);
+
 }
 
 
@@ -580,7 +590,8 @@ body::after {
 
     font-size: 13px;
 
-    line-height: 1.6;
+    line-height: 1.7;
+
 }
 
 
@@ -596,10 +607,10 @@ body::after {
 
     gap: 9px;
 
-    margin-top: 15px;
+    margin-top: 17px;
 
     padding:
-        8px 14px;
+        8px 15px;
 
     border-radius: 999px;
 
@@ -618,7 +629,6 @@ body::after {
 
     letter-spacing: 1px;
 
-    text-transform: uppercase;
 }
 
 
@@ -638,6 +648,7 @@ body::after {
 
     animation:
         blink 1.3s infinite;
+
 }
 
 
@@ -653,9 +664,10 @@ body::after {
 
     justify-content: center;
 
-    gap: 10px;
+    gap: 11px;
 
-    margin-top: 12px;
+    margin-top: 10px;
+
 }
 
 
@@ -667,10 +679,10 @@ body::after {
 
     justify-content: center;
 
-    min-width: 135px;
+    min-width: 140px;
 
     padding:
-        13px 22px;
+        13px 23px;
 
     border-radius: 10px;
 
@@ -681,6 +693,7 @@ body::after {
     font-weight: 800;
 
     transition: .3s;
+
 }
 
 
@@ -689,6 +702,7 @@ body::after {
     color: #050505;
 
     background:
+
         linear-gradient(
             135deg,
             #ff8533,
@@ -698,6 +712,7 @@ body::after {
     box-shadow:
         0 8px 25px
         rgba(255,106,0,.2);
+
 }
 
 
@@ -709,6 +724,7 @@ body::after {
     box-shadow:
         0 12px 35px
         rgba(255,106,0,.35);
+
 }
 
 
@@ -722,6 +738,7 @@ body::after {
     border:
         1px solid
         rgba(255,255,255,.1);
+
 }
 
 
@@ -737,6 +754,7 @@ body::after {
 
     transform:
         translateY(-3px);
+
 }
 
 
@@ -760,6 +778,7 @@ body::after {
 
     background:
         rgba(0,0,0,.35);
+
 }
 
 
@@ -783,11 +802,13 @@ body::after {
 
     }
 
+
     .logo {
 
         font-size: 17px;
 
     }
+
 
     .nav-links {
 
@@ -795,18 +816,13 @@ body::after {
 
     }
 
+
     .nav-links a {
 
         font-size: 11px;
 
     }
 
-    .nav-links a:nth-child(1),
-    .nav-links a:nth-child(2) {
-
-        display: none;
-
-    }
 
     .hero {
 
@@ -818,6 +834,7 @@ body::after {
 
     }
 
+
     .hero h1 {
 
         letter-spacing:
@@ -825,11 +842,13 @@ body::after {
 
     }
 
-    .hero p {
+
+    .hero > p {
 
         font-size: 14px;
 
     }
+
 
     .maintenance {
 
@@ -838,11 +857,13 @@ body::after {
 
     }
 
+
     .hero-buttons {
 
         width: 100%;
 
     }
+
 
     .btn {
 
@@ -866,11 +887,13 @@ body::after {
 
     }
 
+
     .nav-links {
 
-        gap: 8px;
+        gap: 9px;
 
     }
+
 
     .nav-links a {
 
@@ -878,11 +901,13 @@ body::after {
 
     }
 
+
     .hero h1 {
 
         font-size: 40px;
 
     }
+
 
     .maintenance h2 {
 
@@ -900,7 +925,9 @@ body::after {
 <body>
 
 
-<!-- PARTICLES -->
+<!-- =========================
+     PARTICLES
+========================= -->
 
 <canvas id="particles"></canvas>
 
@@ -918,25 +945,8 @@ body::after {
 
     <nav class="nav-links">
 
-        <a
-            href="#"
-            onclick="
-                openPopup('join');
-                return false;
-            "
-        >
-            How to Join
-        </a>
-
-
-        <a
-            href="#"
-            onclick="
-                openPopup('modes');
-                return false;
-            "
-        >
-            Game Modes
+        <a href="info.html">
+             🔸 Server Info
         </a>
 
 
@@ -977,9 +987,12 @@ body::after {
     </p>
 
 
-    <!-- MAINTENANCE -->
+    <!-- =========================
+         MAINTENANCE
+    ========================= -->
 
     <div class="maintenance">
+
 
         <div class="maintenance-icon">
             🚧
@@ -1007,17 +1020,28 @@ body::after {
 
         </div>
 
+
     </div>
 
 
-    <!-- BUTTONS -->
+    <!-- =========================
+         BUTTONS
+    ========================= -->
 
     <div class="hero-buttons">
 
 
         <a
-            href="ranks.html"
+            href="info.html"
             class="btn btn-primary"
+        >
+            ℹ Server Info
+        </a>
+
+
+        <a
+            href="ranks.html"
+            class="btn btn-secondary"
         >
             🏆 View Ranks
         </a>
@@ -1038,18 +1062,6 @@ body::after {
 
 
 <!-- =========================
-     POPUP
-========================= -->
-
-<div
-    id="popup"
-    class="popup"
->
-
-</div>
-
-
-<!-- =========================
      FOOTER
 ========================= -->
 
@@ -1067,201 +1079,16 @@ body::after {
 
 
 <!-- =========================
-     JAVASCRIPT
+     PARTICLES JAVASCRIPT
 ========================= -->
 
 <script>
-
-
-/* =========================
-   POPUP
-========================= */
-
-function openPopup(type) {
-
-    let title = "";
-
-    let text = "";
-
-
-    if (type === "join") {
-
-        title =
-            "How to Join";
-
-        text =
-            "The server is currently under maintenance.\n\n" +
-            "Server joining will be available when Fire Blaze Verse launches.";
-
-    }
-
-
-    if (type === "modes") {
-
-        title =
-            "Game Modes";
-
-        text =
-            "🔥 Survival SMP\n" +
-            "⚔ Lifesteal PvP\n" +
-            "🎮 More coming soon";
-
-    }
-
-
-    const overlay =
-        document.createElement("div");
-
-
-    overlay.style.position =
-        "fixed";
-
-    overlay.style.inset =
-        "0";
-
-    overlay.style.zIndex =
-        "100";
-
-    overlay.style.display =
-        "flex";
-
-    overlay.style.alignItems =
-        "center";
-
-    overlay.style.justifyContent =
-        "center";
-
-    overlay.style.padding =
-        "20px";
-
-    overlay.style.background =
-        "rgba(0,0,0,.78)";
-
-    overlay.style.backdropFilter =
-        "blur(10px)";
-
-
-    overlay.innerHTML = `
-
-        <div style="
-
-            width:min(400px,100%);
-
-            padding:30px;
-
-            border-radius:20px;
-
-            text-align:center;
-
-            background:#111;
-
-            border:1px solid rgba(255,106,0,.3);
-
-            box-shadow:
-                0 25px 80px rgba(0,0,0,.7),
-                0 0 35px rgba(255,106,0,.1);
-
-        ">
-
-            <button
-                onclick="this.closest('div').parentElement.remove()"
-                style="
-                    position:absolute;
-                    opacity:0;
-                    pointer-events:none;
-                "
-            >
-            </button>
-
-            <div style="
-                text-align:right;
-                margin-bottom:5px;
-            ">
-
-                <span
-                    onclick="this.closest('[data-popup]').remove()"
-                    style="
-                        cursor:pointer;
-                        color:#888;
-                        font-size:24px;
-                    "
-                >
-                    ×
-                </span>
-
-            </div>
-
-
-            <h2 style="
-                color:#ff6a00;
-                margin-top:0;
-            ">
-                ${title}
-            </h2>
-
-
-            <p style="
-                color:#bbb;
-                line-height:1.7;
-                white-space:pre-line;
-            ">
-                ${text}
-            </p>
-
-
-            <button
-                onclick="this.closest('[data-popup]').remove()"
-                style="
-                    padding:11px 25px;
-                    border:0;
-                    border-radius:9px;
-                    background:#ff6a00;
-                    color:#050505;
-                    font-weight:800;
-                    cursor:pointer;
-                "
-            >
-                Close
-            </button>
-
-        </div>
-
-    `;
-
-
-    overlay.dataset.popup =
-        "true";
-
-
-    overlay.addEventListener(
-        "click",
-        function(e) {
-
-            if (e.target === overlay) {
-
-                overlay.remove();
-
-            }
-
-        }
-    );
-
-
-    document.body.appendChild(
-        overlay
-    );
-
-}
-
-
-/* =========================
-   PARTICLES
-========================= */
 
 const canvas =
     document.getElementById(
         "particles"
     );
+
 
 const ctx =
     canvas.getContext("2d");
@@ -1368,6 +1195,7 @@ function drawParticles() {
             ctx.shadowBlur =
                 10;
 
+
             ctx.shadowColor =
                 "rgba(255,90,0,.5)";
 
@@ -1382,11 +1210,14 @@ function drawParticles() {
             p.y -=
                 p.speed;
 
+
             p.x +=
                 p.drift;
 
 
-            if (p.y < -10) {
+            if (
+                p.y < -10
+            ) {
 
                 p.y =
                     canvas.height + 10;
@@ -1437,7 +1268,7 @@ drawParticles();
 
 window.addEventListener(
     "resize",
-    function() {
+    function () {
 
         resizeCanvas();
 
@@ -1450,4 +1281,5 @@ window.addEventListener(
 
 
 </body>
+
 </html>
