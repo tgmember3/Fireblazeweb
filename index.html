@@ -652,6 +652,63 @@ body::after {
 
 
 /* =========================
+   DISCORD INVITE
+========================= */
+
+.discord-invite {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 18px;
+
+    padding:
+        11px 21px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    background:
+        rgba(88,101,242,.15);
+
+    border:
+        1px solid
+        rgba(88,101,242,.4);
+
+    transition: .3s;
+
+}
+
+
+.discord-invite:hover {
+
+    background:
+        rgba(88,101,242,.28);
+
+    border-color:
+        rgba(88,101,242,.75);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(88,101,242,.2);
+
+}
+
+
+/* =========================
    BUTTONS
 ========================= */
 
@@ -987,7 +1044,7 @@ body::after {
 
 
     <!-- =========================
-         MAINTENANCE
+         MAINTENANCE CARD
     ========================= -->
 
     <div class="maintenance">
@@ -1011,6 +1068,8 @@ body::after {
         </p>
 
 
+        <!-- STATUS -->
+
         <div class="status">
 
             <span class="status-dot"></span>
@@ -1018,6 +1077,18 @@ body::after {
             COMING SOON
 
         </div>
+
+
+        <!-- DISCORD -->
+
+        <a
+            href="https://discord.gg/F57YGWTVyH"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="discord-invite"
+        >
+            💬 Join our Discord
+        </a>
 
 
     </div>
