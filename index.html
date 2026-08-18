@@ -104,6 +104,44 @@ body {
 
 
 /* =========================
+   PAGE TRANSITION
+========================= */
+
+#page-transition {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,106,0,.18),
+            #030303 65%
+        );
+
+    z-index: 999999;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition:
+        opacity .45s ease;
+
+}
+
+
+#page-transition.active {
+
+    opacity: 1;
+
+    pointer-events: all;
+
+}
+
+
+/* =========================
    CINEMATIC BACKGROUND
 ========================= */
 
@@ -982,6 +1020,13 @@ body::after {
 
 
 <!-- =========================
+     PAGE TRANSITION
+========================= -->
+
+<div id="page-transition"></div>
+
+
+<!-- =========================
      PARTICLES
 ========================= -->
 
@@ -1001,13 +1046,18 @@ body::after {
 
     <nav class="nav-links">
 
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+
         <a href="info.html">
             🔸 Server Info
         </a>
 
 
         <a href="ranks.html">
-            🏆 Rank
+            🏆 Ranks
         </a>
 
 
@@ -1068,8 +1118,6 @@ body::after {
         </p>
 
 
-        <!-- STATUS -->
-
         <div class="status">
 
             <span class="status-dot"></span>
@@ -1078,8 +1126,6 @@ body::after {
 
         </div>
 
-
-        <!-- DISCORD -->
 
         <a
             href="https://discord.gg/F57YGWTVyH"
@@ -1343,6 +1389,123 @@ window.addEventListener(
         resizeCanvas();
 
         createParticles();
+
+    }
+);
+
+</script>
+
+
+<!-- =========================
+     PAGE TRANSITION SCRIPT
+========================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const transition =
+            document.getElementById(
+                "page-transition"
+            );
+
+
+        /* =========================
+           PAGE ENTER
+        ========================= */
+
+        transition.style.opacity = "1";
+
+
+        requestAnimationFrame(
+            function () {
+
+                transition.style.opacity = "0";
+
+            }
+        );
+
+
+        /* =========================
+           PAGE EXIT
+        ========================= */
+
+        document
+            .querySelectorAll("a")
+            .forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function (event) {
+
+                            const url =
+                                link.href;
+
+
+                            /* External links */
+
+                            if (
+                                link.target === "_blank" ||
+                                url.startsWith("mailto:") ||
+                                url.startsWith("javascript:")
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            /* Same-page anchors */
+
+                            if (
+                                link.getAttribute("href")
+                                ?.startsWith("#")
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            /* Don't animate
+                               current page */
+
+                            if (
+                                link.pathname ===
+                                window.location.pathname
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            event.preventDefault();
+
+
+                            transition.classList.add(
+                                "active"
+                            );
+
+
+                            setTimeout(
+                                function () {
+
+                                    window.location.href =
+                                        url;
+
+                                },
+                                450
+                            );
+
+                        }
+                    );
+
+                }
+            );
 
     }
 );
