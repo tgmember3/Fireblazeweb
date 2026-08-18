@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Server Info | Fire Blaze Verse</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+    background: #030303;
+
+    overflow-x: hidden;
+
+    animation: pageEnter .65s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* =========================
+   PAGE ENTER
+========================= */
+
+@keyframes pageEnter {
+
+    from {
+        opacity: 0;
+        transform: scale(1.025);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+}
+
+
+/* =========================
+   CINEMATIC PAGE TRANSITION
+========================= */
+
+#page-transition {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999999;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+}
+
+
+/* Main dark layer */
+
+#page-transition::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            115deg,
+            #030303 0%,
+            #130600 35%,
+            #ff6a00 50%,
+            #130600 65%,
+            #030303 100%
+        );
+
+    transform:
+        translateX(-110%);
+
+}
+
+
+/* Fire glow */
+
+#page-transition::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -20%;
+
+    width: 40%;
+
+    height: 100%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,180,80,.95),
+            rgba(255,106,0,.65),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    transform:
+        translateX(-150%);
+
+}
+
+
+/* =========================
+   EXIT ANIMATION
+========================= */
+
+#page-transition.exit {
+
+    opacity: 1;
+
+}
+
+
+#page-transition.exit::before {
+
+    animation:
+        transitionWipe .65s cubic-bezier(.77,0,.18,1)
+        forwards;
+
+}
+
+
+#page-transition.exit::after {
+
+    animation:
+        fireSweep .65s cubic-bezier(.77,0,.18,1)
+        forwards;
+
+}
+
+
+@keyframes transitionWipe {
+
+    0% {
+        transform: translateX(-110%);
+    }
+
+    100% {
+        transform: translateX(110%);
+    }
+
+}
+
+
+@keyframes fireSweep {
+
+    0% {
+        transform: translateX(-150%);
+    }
+
+    100% {
+        transform: translateX(450%);
+    }
+
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(0,0,0,.94),
+            rgba(45,12,0,.78),
+            rgba(0,0,0,.97)
+        ),
+
+        url("https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png")
+        center / cover no-repeat;
+
+    filter:
+        blur(2px)
+        brightness(.7);
+
+    transform: scale(1.05);
+
+    z-index: -5;
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(255,106,0,.2),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0,0,0,.94)
+        );
+
+    z-index: -4;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+#particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: -3;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 17px 6%;
+
+    background:
+        rgba(5,5,5,.68);
+
+    border-bottom:
+        1px solid
+        rgba(255,106,0,.16);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+.logo {
+
+    font-size: 21px;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 18px
+        rgba(255,106,0,.7);
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+}
+
+
+.nav-links a {
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.nav-links a:hover {
+
+    color: white;
+
+}
+
+
+.nav-links .active {
+
+    color: #ff7620;
+
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container {
+
+    width:
+        min(1050px, 92%);
+
+    margin: auto;
+
+    padding:
+        65px 0 90px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 45px;
+
+    animation:
+        contentEnter .8s .1s both
+        cubic-bezier(.22,1,.36,1);
+}
+
+
+@keyframes contentEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding:
+        8px 16px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,106,0,.08);
+
+    border:
+        1px solid
+        rgba(255,106,0,.25);
+
+    color: #ff9655;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.header h1 {
+
+    margin:
+        18px 0 10px;
+
+    font-size:
+        clamp(43px, 7vw, 68px);
+
+    font-weight: 950;
+
+    letter-spacing: -2px;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            #fff,
+            #ffbd83,
+            #ff6a00
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.header p {
+
+    max-width: 620px;
+
+    margin: auto;
+
+    color: #999;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+
+    padding: 28px;
+
+    border-radius: 21px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(25,25,25,.88),
+            rgba(7,7,7,.82)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.4);
+
+    transition: .35s;
+
+    animation:
+        cardEnter .75s .2s both
+        cubic-bezier(.22,1,.36,1);
+}
+
+
+@keyframes cardEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(255,106,0,.35);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.55),
+
+        0 0 30px
+        rgba(255,106,0,.08);
+}
+
+
+.card-icon {
+
+    width: 54px;
+
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,106,0,.09);
+
+    border:
+        1px solid
+        rgba(255,106,0,.2);
+
+    font-size: 26px;
+
+    margin-bottom: 18px;
+}
+
+
+.card h2 {
+
+    margin:
+        0 0 9px;
+
+    font-size: 23px;
+}
+
+
+.card-description {
+
+    margin: 0;
+
+    color: #999;
+
+    line-height: 1.7;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   GAME MODES
+========================= */
+
+.modes {
+
+    display: grid;
+
+    gap: 11px;
+
+    margin-top: 20px;
+}
+
+
+.mode {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        14px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    transition: .25s;
+}
+
+
+.mode:hover {
+
+    transform:
+        translateX(5px);
+
+    background:
+        rgba(255,106,0,.07);
+
+    border-color:
+        rgba(255,106,0,.22);
+}
+
+
+.mode-icon {
+
+    width: 35px;
+
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,106,0,.1);
+
+    font-size: 18px;
+}
+
+
+.mode-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.mode-name {
+
+    color: #eee;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+.mode-status {
+
+    color: #777;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   JOIN STEPS
+========================= */
+
+.steps {
+
+    display: grid;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+
+.step {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+}
+
+
+.number {
+
+    flex-shrink: 0;
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,106,0,.12);
+
+    border:
+        1px solid
+        rgba(255,106,0,.2);
+
+    color: #ff7620;
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+
+.step-content {
+
+    padding-top: 3px;
+}
+
+
+.step-content strong {
+
+    display: block;
+
+    color: #eee;
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+
+.step-content span {
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   SERVER STATUS
+========================= */
+
+.status-card {
+
+    grid-column:
+        1 / -1;
+
+    text-align: center;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,106,0,.08),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,106,0,.2);
+
+    animation:
+        cardEnter .75s .35s both
+        cubic-bezier(.22,1,.36,1);
+}
+
+
+.status-icon {
+
+    font-size: 34px;
+
+    margin-bottom: 8px;
+
+    animation:
+        pulse 1.6s infinite;
+}
+
+
+@keyframes pulse {
+
+    0%,100% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        opacity: .65;
+
+    }
+
+}
+
+
+.status-card h2 {
+
+    margin:
+        0 0 8px;
+
+    color: #ff7620;
+
+    font-size: 23px;
+}
+
+
+.status-card p {
+
+    margin: 0;
+
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+.status-pill {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 17px;
+
+    padding:
+        8px 15px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.status-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ff6a00;
+
+    box-shadow:
+        0 0 12px
+        #ff6a00;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 35px;
+
+    padding:
+        12px 18px;
+
+    border-radius: 10px;
+
+    color: #bbb;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition: .3s;
+
+}
+
+
+.back-button:hover {
+
+    color: white;
+
+    background:
+        rgba(255,106,0,.08);
+
+    border-color:
+        rgba(255,106,0,.3);
+
+    transform:
+        translateX(-4px);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #555;
+
+    font-size: 12px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+    background:
+        rgba(0,0,0,.35);
+}
+
+
+.footer strong {
+
+    color: #ff6a00;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px) {
+
+    .navbar {
+
+        padding:
+            14px 18px;
+
+    }
+
+
+    .logo {
+
+        font-size: 17px;
+
+    }
+
+
+    .nav-links {
+
+        gap: 10px;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 10px;
+
+    }
+
+
+    .container {
+
+        width: 91%;
+
+        padding-top: 45px;
+
+    }
+
+
+    .info-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .status-card {
+
+        grid-column: auto;
+
+    }
+
+
+    .card {
+
+        padding: 23px;
+
+    }
+
+}
+
+
+@media(max-width:400px) {
+
+    .nav-links {
+
+        gap: 7px;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 9px;
+
+    }
+
+
+    .header h1 {
+
+        font-size: 41px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     PAGE TRANSITION
+========================= -->
+
+<div id="page-transition"></div>
+
+
+<!-- =========================
+     PARTICLES
+========================= -->
+
+<canvas id="particles"></canvas>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🔥 FBVerse
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+
+        <a href="info.html" class="active">
+            🔸 Server Info
+        </a>
+
+
+        <a href="ranks.html">
+            🏆 Ranks
+        </a>
+
+
+        <a href="donate.html">
+            ❤️ Donate
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+    <section class="header">
+
+        <div class="badge">
+            Server Information
+        </div>
+
+
+        <h1>
+            Fire Blaze Verse
+        </h1>
+
+
+        <p>
+            Your ultimate guide to joining,
+            playing and exploring the
+            Fire Blaze Verse Minecraft network.
+        </p>
+
+    </section>
+
+
+    <div class="info-grid">
+
+
+        <!-- GAME MODES -->
+
+        <section class="card">
+
+            <div class="card-icon">
+                🎮
+            </div>
+
+
+            <h2>
+                Game Modes
+            </h2>
+
+
+            <p class="card-description">
+                Choose your way to play.
+                More exciting modes will be
+                added as the network grows.
+            </p>
+
+
+            <div class="modes">
+
+
+                <div class="mode">
+
+                    <div class="mode-icon">
+                        🌳
+                    </div>
+
+
+                    <div class="mode-info">
+
+                        <div class="mode-name">
+                            Survival SMP
+                        </div>
+
+                        <div class="mode-status">
+                            Coming Soon
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mode">
+
+                    <div class="mode-icon">
+                        ⚔️
+                    </div>
+
+
+                    <div class="mode-info">
+
+                        <div class="mode-name">
+                            Lifesteal PvP
+                        </div>
+
+                        <div class="mode-status">
+                            Coming Soon
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mode">
+
+                    <div class="mode-icon">
+                        🏹
+                    </div>
+
+
+                    <div class="mode-info">
+
+                        <div class="mode-name">
+                            More Modes
+                        </div>
+
+                        <div class="mode-status">
+                            Coming Soon
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW TO JOIN -->
+
+        <section class="card">
+
+            <div class="card-icon">
+                🎮
+            </div>
+
+
+            <h2>
+                How to Join
+            </h2>
+
+
+            <p class="card-description">
+                Joining Fire Blaze Verse will
+                only take a few simple steps.
+            </p>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <div class="number">
+                        01
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <strong>
+                            Open Minecraft
+                        </strong>
+
+                        <span>
+                            Launch Minecraft and open
+                            the Multiplayer menu.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="number">
+                        02
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <strong>
+                            Add the Server
+                        </strong>
+
+                        <span>
+                            Select "Add Server" and enter
+                            the server address.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="number">
+                        03
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <strong>
+                            Save & Connect
+                        </strong>
+
+                        <span>
+                            Save the server and connect
+                            once the server is online.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="number">
+                        04
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <strong>
+                            Start Playing
+                        </strong>
+
+                        <span>
+                            Enter the world and enjoy
+                            Fire Blaze Verse!
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVER STATUS -->
+
+        <section class="status-card">
+
+            <div class="status-icon">
+                🚧
+            </div>
+
+
+            <h2>
+                Server In Maintenance
+            </h2>
+
+
+            <p>
+                Fire Blaze Verse is currently
+                under development.
+                <br>
+                The server address will be revealed
+                when the server officially launches.
+            </p>
+
+
+            <div class="status-pill">
+
+                <span class="status-dot"></span>
+
+                COMING SOON
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- BACK HOME -->
+
+    <div style="text-align:center;">
+
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    © 2026
+
+    <strong>
+        Fire Blaze Verse
+    </strong>
+
+    • All Rights Reserved
+
+</footer>
+
+
+<!-- =========================
+     PARTICLES
+========================= -->
+
+<script>
+
+const canvas =
+    document.getElementById(
+        "particles"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let particles = [];
+
+
+function resizeCanvas() {
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+}
+
+
+function createParticles() {
+
+    particles = [];
+
+
+    const amount =
+        window.innerWidth < 600
+        ? 35
+        : 80;
+
+
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
+
+        particles.push({
+
+            x:
+                Math.random()
+                * canvas.width,
+
+            y:
+                Math.random()
+                * canvas.height,
+
+            r:
+                Math.random()
+                * 2 + .3,
+
+            speed:
+                Math.random()
+                * .7 + .15,
+
+            drift:
+                (Math.random() - .5)
+                * .25,
+
+            opacity:
+                Math.random()
+                * .55 + .1
+
+        });
+
+    }
+
+}
+
+
+function drawParticles() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    particles.forEach(
+        p => {
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                p.x,
+                p.y,
+                p.r,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fillStyle =
+                `rgba(
+                    255,
+                    120,
+                    30,
+                    ${p.opacity}
+                )`;
+
+
+            ctx.shadowBlur = 10;
+
+            ctx.shadowColor =
+                "rgba(255,90,0,.5)";
+
+
+            ctx.fill();
+
+            ctx.shadowBlur = 0;
+
+
+            p.y -= p.speed;
+
+            p.x += p.drift;
+
+
+            if (p.y < -10) {
+
+                p.y =
+                    canvas.height + 10;
+
+                p.x =
+                    Math.random()
+                    * canvas.width;
+
+            }
+
+
+            if (p.x < -10) {
+
+                p.x =
+                    canvas.width + 10;
+
+            }
+
+
+            if (
+                p.x >
+                canvas.width + 10
+            ) {
+
+                p.x = -10;
+
+            }
+
+        }
+    );
+
+
+    requestAnimationFrame(
+        drawParticles
+    );
+
+}
+
+
+resizeCanvas();
+
+createParticles();
+
+drawParticles();
+
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        resizeCanvas();
+
+        createParticles();
+
+    }
+);
+
+</script>
+
+
+<!-- =========================
+     PAGE TRANSITION SCRIPT
+========================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const transition =
+            document.getElementById(
+                "page-transition"
+            );
+
+
+        /* =========================
+           ALL INTERNAL LINKS
+        ========================= */
+
+        document
+            .querySelectorAll("a")
+            .forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function (event) {
+
+                            const href =
+                                link.getAttribute(
+                                    "href"
+                                );
+
+
+                            /* Ignore empty links */
+
+                            if (
+                                !href ||
+                                href === "#" ||
+                                href.startsWith("#")
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            /* Ignore external links */
+
+                            if (
+                                link.target === "_blank" ||
+                                href.startsWith("http://") ||
+                                href.startsWith("https://") ||
+                                href.startsWith("mailto:")
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            /* Ignore same page */
+
+                            if (
+                                href ===
+                                window.location.pathname
+                                .split("/")
+                                .pop()
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            event.preventDefault();
+
+
+                            /* Start cinematic animation */
+
+                            transition.classList.add(
+                                "exit"
+                            );
+
+
+                            /* Navigate after animation */
+
+                            setTimeout(
+                                function () {
+
+                                    window.location.href =
+                                        href;
+
+                                },
+                                620
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
