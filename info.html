@@ -9,6 +9,9 @@
 
 <title>Server Info | Fire Blaze Verse</title>
 
+<meta name="description"
+content="Official Fire Blaze Verse Minecraft server information, game modes, joining guide and server status.">
+
 <style>
 
 /* =========================
@@ -24,9 +27,7 @@ html {
 }
 
 body {
-
     margin: 0;
-
     min-height: 100vh;
 
     font-family:
@@ -47,15 +48,12 @@ body {
 ========================= */
 
 body::before {
-
     content: "";
 
     position: fixed;
-
     inset: 0;
 
     background:
-
         linear-gradient(
             135deg,
             rgba(0,0,0,.94),
@@ -77,15 +75,12 @@ body::before {
 
 
 body::after {
-
     content: "";
 
     position: fixed;
-
     inset: 0;
 
     background:
-
         radial-gradient(
             circle at 50% 25%,
             rgba(255,106,0,.2),
@@ -109,13 +104,11 @@ body::after {
 ========================= */
 
 #particles {
-
     position: fixed;
 
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     z-index: -3;
@@ -129,7 +122,6 @@ body::after {
 ========================= */
 
 .navbar {
-
     position: sticky;
 
     top: 0;
@@ -159,8 +151,11 @@ body::after {
 }
 
 
-.logo {
+/* =========================
+   LOGO
+========================= */
 
+.logo {
     font-size: 21px;
 
     font-weight: 900;
@@ -168,11 +163,16 @@ body::after {
     text-shadow:
         0 0 18px
         rgba(255,106,0,.7);
+
+    white-space: nowrap;
 }
 
 
-.nav-links {
+/* =========================
+   NAV LINKS
+========================= */
 
+.nav-links {
     display: flex;
 
     align-items: center;
@@ -182,6 +182,7 @@ body::after {
 
 
 .nav-links a {
+    position: relative;
 
     color: #aaa;
 
@@ -196,16 +197,47 @@ body::after {
 
 
 .nav-links a:hover {
-
     color: white;
-
 }
 
 
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #ff6a00;
+
+    box-shadow:
+        0 0 10px
+        #ff6a00;
+
+    transition: .3s;
+}
+
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* ACTIVE */
+
 .nav-links .active {
-
     color: #ff7620;
+}
 
+
+.nav-links .active::after {
+    width: 100%;
 }
 
 
@@ -214,7 +246,6 @@ body::after {
 ========================= */
 
 .container {
-
     width:
         min(1050px, 92%);
 
@@ -230,15 +261,35 @@ body::after {
 ========================= */
 
 .header {
-
     text-align: center;
 
     margin-bottom: 45px;
+
+    animation:
+        headerIn .8s ease;
+}
+
+
+@keyframes headerIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
 }
 
 
 .badge {
-
     display: inline-block;
 
     padding:
@@ -266,7 +317,6 @@ body::after {
 
 
 .header h1 {
-
     margin:
         18px 0 10px;
 
@@ -278,7 +328,6 @@ body::after {
     letter-spacing: -2px;
 
     background:
-
         linear-gradient(
             120deg,
             #fff,
@@ -295,7 +344,6 @@ body::after {
 
 
 .header p {
-
     max-width: 620px;
 
     margin: auto;
@@ -313,7 +361,6 @@ body::after {
 ========================= */
 
 .info-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -328,13 +375,11 @@ body::after {
 ========================= */
 
 .card {
-
     padding: 28px;
 
     border-radius: 21px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(25,25,25,.88),
@@ -348,16 +393,31 @@ body::after {
     backdrop-filter:
         blur(15px);
 
+    -webkit-backdrop-filter:
+        blur(15px);
+
     box-shadow:
         0 20px 60px
         rgba(0,0,0,.4);
 
     transition: .35s;
+
+    animation:
+        cardIn .7s ease both;
+}
+
+
+.card:nth-child(1) {
+    animation-delay: .1s;
+}
+
+
+.card:nth-child(2) {
+    animation-delay: .2s;
 }
 
 
 .card:hover {
-
     transform:
         translateY(-5px);
 
@@ -373,8 +433,30 @@ body::after {
 }
 
 
-.card-icon {
+@keyframes cardIn {
 
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================
+   CARD ICON
+========================= */
+
+.card-icon {
     width: 54px;
 
     height: 54px;
@@ -401,7 +483,6 @@ body::after {
 
 
 .card h2 {
-
     margin:
         0 0 9px;
 
@@ -410,7 +491,6 @@ body::after {
 
 
 .card-description {
-
     margin: 0;
 
     color: #999;
@@ -426,7 +506,6 @@ body::after {
 ========================= */
 
 .modes {
-
     display: grid;
 
     gap: 11px;
@@ -436,15 +515,13 @@ body::after {
 
 
 .mode {
-
     display: flex;
 
     align-items: center;
 
     gap: 13px;
 
-    padding:
-        14px;
+    padding: 14px;
 
     border-radius: 12px;
 
@@ -460,7 +537,6 @@ body::after {
 
 
 .mode:hover {
-
     transform:
         translateX(5px);
 
@@ -473,7 +549,6 @@ body::after {
 
 
 .mode-icon {
-
     width: 35px;
 
     height: 35px;
@@ -490,11 +565,12 @@ body::after {
         rgba(255,106,0,.1);
 
     font-size: 18px;
+
+    flex-shrink: 0;
 }
 
 
 .mode-info {
-
     display: flex;
 
     flex-direction: column;
@@ -504,7 +580,6 @@ body::after {
 
 
 .mode-name {
-
     color: #eee;
 
     font-size: 13px;
@@ -514,7 +589,6 @@ body::after {
 
 
 .mode-status {
-
     color: #777;
 
     font-size: 10px;
@@ -526,7 +600,6 @@ body::after {
 ========================= */
 
 .steps {
-
     display: grid;
 
     gap: 15px;
@@ -536,7 +609,6 @@ body::after {
 
 
 .step {
-
     display: flex;
 
     align-items: flex-start;
@@ -546,7 +618,6 @@ body::after {
 
 
 .number {
-
     flex-shrink: 0;
 
     width: 32px;
@@ -577,13 +648,11 @@ body::after {
 
 
 .step-content {
-
     padding-top: 3px;
 }
 
 
 .step-content strong {
-
     display: block;
 
     color: #eee;
@@ -595,7 +664,6 @@ body::after {
 
 
 .step-content span {
-
     color: #777;
 
     font-size: 11px;
@@ -609,7 +677,6 @@ body::after {
 ========================= */
 
 .status-card {
-
     grid-column:
         1 / -1;
 
@@ -620,7 +687,6 @@ body::after {
     border-radius: 20px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,106,0,.08),
@@ -634,7 +700,6 @@ body::after {
 
 
 .status-icon {
-
     font-size: 34px;
 
     margin-bottom: 8px;
@@ -647,28 +712,23 @@ body::after {
 @keyframes pulse {
 
     0%,100% {
-
         transform:
             scale(1);
 
         opacity: 1;
-
     }
 
     50% {
-
         transform:
             scale(1.08);
 
         opacity: .65;
-
     }
 
 }
 
 
 .status-card h2 {
-
     margin:
         0 0 8px;
 
@@ -679,7 +739,6 @@ body::after {
 
 
 .status-card p {
-
     margin: 0;
 
     color: #999;
@@ -691,7 +750,6 @@ body::after {
 
 
 .status-pill {
-
     display: inline-flex;
 
     align-items: center;
@@ -723,7 +781,6 @@ body::after {
 
 
 .status-dot {
-
     width: 7px;
 
     height: 7px;
@@ -735,6 +792,22 @@ body::after {
     box-shadow:
         0 0 12px
         #ff6a00;
+
+    animation:
+        blink 1.3s infinite;
+}
+
+
+@keyframes blink {
+
+    0%,100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .45;
+    }
+
 }
 
 
@@ -743,7 +816,6 @@ body::after {
 ========================= */
 
 .back-button {
-
     display: inline-flex;
 
     align-items: center;
@@ -777,7 +849,6 @@ body::after {
 
 
 .back-button:hover {
-
     color: white;
 
     background:
@@ -796,7 +867,6 @@ body::after {
 ========================= */
 
 .footer {
-
     padding: 25px;
 
     text-align: center;
@@ -815,7 +885,6 @@ body::after {
 
 
 .footer strong {
-
     color: #ff6a00;
 }
 
@@ -827,86 +896,81 @@ body::after {
 @media(max-width:700px) {
 
     .navbar {
-
         padding:
             14px 18px;
 
+        gap: 12px;
     }
 
 
     .logo {
-
         font-size: 17px;
-
     }
 
 
     .nav-links {
-
         gap: 10px;
-
     }
 
 
     .nav-links a {
-
         font-size: 10px;
-
     }
 
 
     .container {
-
         width: 91%;
 
         padding-top: 45px;
-
     }
 
 
     .info-grid {
-
         grid-template-columns: 1fr;
-
     }
 
 
     .status-card {
-
         grid-column: auto;
-
     }
 
 
     .card {
-
         padding: 23px;
-
     }
 
 }
 
 
+/* =========================
+   SMALL PHONES
+========================= */
+
 @media(max-width:400px) {
 
+    .navbar {
+        padding:
+            13px 14px;
+    }
+
+
+    .logo {
+        font-size: 15px;
+    }
+
+
     .nav-links {
-
         gap: 7px;
-
     }
 
 
     .nav-links a {
-
         font-size: 9px;
-
     }
 
 
     .header h1 {
-
         font-size: 41px;
-
     }
 
 }
@@ -958,6 +1022,11 @@ body::after {
             ❤️ Donate
         </a>
 
+
+        <a href="contact.html">
+            📩 Contact
+        </a>
+
     </nav>
 
 </header>
@@ -969,6 +1038,8 @@ body::after {
 
 <main class="container">
 
+
+    <!-- HEADER -->
 
     <section class="header">
 
@@ -991,6 +1062,8 @@ body::after {
     </section>
 
 
+    <!-- INFO GRID -->
+
     <div class="info-grid">
 
 
@@ -1011,14 +1084,18 @@ body::after {
 
 
             <p class="card-description">
+
                 Choose your way to play.
                 More exciting modes will be
                 added as the network grows.
+
             </p>
 
 
             <div class="modes">
 
+
+                <!-- SURVIVAL -->
 
                 <div class="mode">
 
@@ -1033,6 +1110,7 @@ body::after {
                             Survival SMP
                         </div>
 
+
                         <div class="mode-status">
                             Coming Soon
                         </div>
@@ -1041,6 +1119,8 @@ body::after {
 
                 </div>
 
+
+                <!-- LIFESTEAL -->
 
                 <div class="mode">
 
@@ -1055,6 +1135,7 @@ body::after {
                             Lifesteal PvP
                         </div>
 
+
                         <div class="mode-status">
                             Coming Soon
                         </div>
@@ -1063,6 +1144,8 @@ body::after {
 
                 </div>
 
+
+                <!-- MORE MODES -->
 
                 <div class="mode">
 
@@ -1076,6 +1159,7 @@ body::after {
                         <div class="mode-name">
                             More Modes
                         </div>
+
 
                         <div class="mode-status">
                             Coming Soon
@@ -1108,13 +1192,17 @@ body::after {
 
 
             <p class="card-description">
+
                 Joining Fire Blaze Verse will
                 only take a few simple steps.
+
             </p>
 
 
             <div class="steps">
 
+
+                <!-- STEP 01 -->
 
                 <div class="step">
 
@@ -1129,6 +1217,7 @@ body::after {
                             Open Minecraft
                         </strong>
 
+
                         <span>
                             Launch Minecraft and open
                             the Multiplayer menu.
@@ -1138,6 +1227,8 @@ body::after {
 
                 </div>
 
+
+                <!-- STEP 02 -->
 
                 <div class="step">
 
@@ -1152,6 +1243,7 @@ body::after {
                             Add the Server
                         </strong>
 
+
                         <span>
                             Select "Add Server" and enter
                             the server address.
@@ -1161,6 +1253,8 @@ body::after {
 
                 </div>
 
+
+                <!-- STEP 03 -->
 
                 <div class="step">
 
@@ -1175,6 +1269,7 @@ body::after {
                             Save & Connect
                         </strong>
 
+
                         <span>
                             Save the server and connect
                             once the server is online.
@@ -1184,6 +1279,8 @@ body::after {
 
                 </div>
 
+
+                <!-- STEP 04 -->
 
                 <div class="step">
 
@@ -1197,6 +1294,7 @@ body::after {
                         <strong>
                             Start Playing
                         </strong>
+
 
                         <span>
                             Enter the world and enjoy
@@ -1231,11 +1329,15 @@ body::after {
 
 
             <p>
+
                 Fire Blaze Verse is currently
                 under development.
+
                 <br>
+
                 The server address will be revealed
                 when the server officially launches.
+
             </p>
 
 
@@ -1253,6 +1355,8 @@ body::after {
 
     </div>
 
+
+    <!-- BACK BUTTON -->
 
     <div style="text-align:center;">
 
@@ -1287,7 +1391,7 @@ body::after {
 
 
 <!-- =========================
-     PARTICLES
+     PARTICLES JAVASCRIPT
 ========================= -->
 
 <script>
@@ -1297,12 +1401,17 @@ const canvas =
         "particles"
     );
 
+
 const ctx =
     canvas.getContext("2d");
 
 
 let particles = [];
 
+
+/* =========================
+   RESIZE
+========================= */
 
 function resizeCanvas() {
 
@@ -1314,6 +1423,10 @@ function resizeCanvas() {
 
 }
 
+
+/* =========================
+   CREATE PARTICLES
+========================= */
 
 function createParticles() {
 
@@ -1365,6 +1478,10 @@ function createParticles() {
 }
 
 
+/* =========================
+   DRAW PARTICLES
+========================= */
+
 function drawParticles() {
 
     ctx.clearRect(
@@ -1401,19 +1518,24 @@ function drawParticles() {
 
             ctx.shadowBlur = 10;
 
+
             ctx.shadowColor =
                 "rgba(255,90,0,.5)";
 
 
             ctx.fill();
 
+
             ctx.shadowBlur = 0;
 
 
             p.y -= p.speed;
 
+
             p.x += p.drift;
 
+
+            /* TOP */
 
             if (p.y < -10) {
 
@@ -1427,6 +1549,8 @@ function drawParticles() {
             }
 
 
+            /* LEFT */
+
             if (p.x < -10) {
 
                 p.x =
@@ -1434,6 +1558,8 @@ function drawParticles() {
 
             }
 
+
+            /* RIGHT */
 
             if (
                 p.x >
@@ -1455,12 +1581,20 @@ function drawParticles() {
 }
 
 
+/* =========================
+   START
+========================= */
+
 resizeCanvas();
 
 createParticles();
 
 drawParticles();
 
+
+/* =========================
+   WINDOW RESIZE
+========================= */
 
 window.addEventListener(
     "resize",
