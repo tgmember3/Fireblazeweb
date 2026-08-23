@@ -1,24 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fire Blaze Verse</title>
+<title>Fire Blaze Verse | Coming Soon</title>
 
 <meta name="google-adsense-account"
-      content="ca-pub-5709038508572445">
+content="ca-pub-5709038508572445">
+
+<!-- =========================
+     GOOGLE ADSENSE
+========================= -->
 
 <script async
 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5709038508572445"
 crossorigin="anonymous"></script>
 
+
+<!-- =========================
+     ADBUTLER
+========================= -->
+
+<script>
+if (!window.AdButler) {
+
+    (function () {
+
+        var s = document.createElement("script");
+
+        s.async = true;
+
+        s.type = "text/javascript";
+
+        s.src = "https://servedbyadbutler.com/app.js";
+
+        var n = document.getElementsByTagName("script")[0];
+
+        n.parentNode.insertBefore(s, n);
+
+    }());
+
+}
+</script>
+
+
+<script>
+
+var AdButler = AdButler || {};
+
+AdButler.ads = AdButler.ads || [];
+
+AdButler.ads.push(function () {
+
+    AdButler.enableLazyLoading({
+
+        renderViewportPercent: 200,
+
+        mobileScaling: 2.0
+
+    });
+
+});
+
+</script>
+
+
 <style>
 
-/* =========================================================
+/* =========================
    RESET
-========================================================= */
+========================= */
 
 * {
     box-sizing: border-box;
@@ -29,7 +84,9 @@ html {
 }
 
 body {
+
     margin: 0;
+
     min-height: 100vh;
 
     font-family:
@@ -38,23 +95,28 @@ body {
         sans-serif;
 
     color: white;
+
     background: #030303;
 
     overflow-x: hidden;
+
 }
 
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
+/* =========================
+   CINEMATIC BACKGROUND
+========================= */
 
 body::before {
+
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     background:
+
         linear-gradient(
             135deg,
             rgba(0,0,0,.94),
@@ -72,112 +134,71 @@ body::before {
     transform: scale(1.05);
 
     z-index: -5;
+
 }
 
+
 body::after {
+
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     background:
+
         radial-gradient(
-            circle at 50% 25%,
-            rgba(255,106,0,.20),
+            circle at 50% 35%,
+            rgba(255,106,0,.22),
             transparent 45%
         ),
 
         linear-gradient(
             to bottom,
             transparent,
-            rgba(0,0,0,.94)
+            rgba(0,0,0,.92)
         );
 
     z-index: -4;
 
     pointer-events: none;
+
 }
 
 
-/* =========================================================
+/* =========================
    PARTICLES
-========================================================= */
+========================= */
 
 #particles {
+
     position: fixed;
 
     inset: 0;
 
     width: 100%;
+
     height: 100%;
 
     z-index: -3;
 
     pointer-events: none;
+
 }
 
 
-/* =========================================================
-   PAGE TRANSITION
-========================================================= */
-
-#transition {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 99999;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,106,0,.25),
-            rgba(0,0,0,.96) 65%
-        );
-
-    opacity: 0;
-
-    transform: scale(1.15);
-}
-
-#transition.active {
-    animation:
-        transitionFlash
-        .65s
-        cubic-bezier(.22,1,.36,1);
-}
-
-@keyframes transitionFlash {
-
-    0% {
-        opacity: 0;
-        transform: scale(1.15);
-    }
-
-    35% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(.95);
-    }
-}
-
-
-/* =========================================================
+/* =========================
    NAVBAR
-========================================================= */
+========================= */
 
 .navbar {
+
     position: sticky;
 
     top: 0;
 
-    z-index: 100;
+    z-index: 50;
 
     display: flex;
 
@@ -188,7 +209,7 @@ body::after {
     padding: 17px 6%;
 
     background:
-        rgba(5,5,5,.68);
+        rgba(5,5,5,.65);
 
     border-bottom:
         1px solid
@@ -199,67 +220,72 @@ body::after {
 
     -webkit-backdrop-filter:
         blur(18px);
+
 }
 
+
 .logo {
+
     font-size: 21px;
 
     font-weight: 900;
+
+    color: white;
 
     text-shadow:
         0 0 18px
         rgba(255,106,0,.7);
 
-    white-space: nowrap;
 }
 
+
 .nav-links {
+
     display: flex;
 
     align-items: center;
 
-    gap: 22px;
+    gap: 23px;
+
 }
 
-.nav-links button {
+
+.nav-links a {
+
     position: relative;
-
-    border: 0;
-
-    background: none;
 
     color: #aaa;
 
-    font-family: inherit;
+    text-decoration: none;
 
     font-size: 13px;
 
     font-weight: 700;
 
-    cursor: pointer;
-
-    padding: 5px 0;
-
     transition: .3s;
+
 }
 
-.nav-links button:hover {
+
+.nav-links a:hover {
+
     color: white;
+
 }
 
-.nav-links button.active {
-    color: #ff7620;
-}
 
-.nav-links button::after {
+.nav-links a::after {
+
     content: "";
 
     position: absolute;
 
     left: 0;
+
     bottom: -7px;
 
     width: 0;
+
     height: 2px;
 
     background: #ff6a00;
@@ -269,63 +295,23 @@ body::after {
         #ff6a00;
 
     transition: .3s;
+
 }
 
-.nav-links button:hover::after,
-.nav-links button.active::after {
+
+.nav-links a:hover::after {
+
     width: 100%;
+
 }
 
 
-/* =========================================================
-   PAGE SYSTEM
-========================================================= */
-
-.page {
-    display: none;
-
-    min-height:
-        calc(100vh - 75px);
-
-    animation:
-        pageEnter
-        .65s
-        cubic-bezier(.22,1,.36,1);
-}
-
-.page.active {
-    display: block;
-}
-
-@keyframes pageEnter {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(25px)
-            scale(.985);
-
-        filter: blur(8px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        filter: blur(0);
-    }
-}
-
-
-/* =========================================================
-   HOME
-========================================================= */
+/* =========================
+   HERO
+========================= */
 
 .hero {
+
     min-height:
         calc(100vh - 75px);
 
@@ -341,15 +327,26 @@ body::after {
 
     padding:
         50px 20px 80px;
+
+    position: relative;
+
 }
 
+
+/* =========================
+   FIRE ICON
+========================= */
+
 .fire-icon {
+
     width: 78px;
+
     height: 78px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     border-radius: 23px;
@@ -370,11 +367,10 @@ body::after {
         rgba(255,106,0,.15);
 
     animation:
-        floating
-        3s
-        ease-in-out
-        infinite;
+        floating 3s ease-in-out infinite;
+
 }
+
 
 @keyframes floating {
 
@@ -387,9 +383,16 @@ body::after {
         transform:
             translateY(-8px);
     }
+
 }
 
+
+/* =========================
+   TITLE
+========================= */
+
 .hero h1 {
+
     margin: 0;
 
     font-size:
@@ -402,6 +405,7 @@ body::after {
     letter-spacing: -3px;
 
     background:
+
         linear-gradient(
             120deg,
             #ffffff,
@@ -410,12 +414,48 @@ body::after {
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     color: transparent;
+
+    animation:
+        titleIn .9s ease;
+
 }
 
-.hero-description {
+
+@keyframes titleIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.hero > p {
+
     max-width: 650px;
 
     margin:
@@ -426,9 +466,16 @@ body::after {
     font-size: 16px;
 
     line-height: 1.7;
+
 }
 
+
+/* =========================
+   MAINTENANCE CARD
+========================= */
+
 .maintenance {
+
     width:
         min(620px, 100%);
 
@@ -441,6 +488,7 @@ body::after {
     border-radius: 20px;
 
     background:
+
         linear-gradient(
             145deg,
             rgba(255,106,0,.1),
@@ -452,6 +500,7 @@ body::after {
         rgba(255,106,0,.28);
 
     box-shadow:
+
         0 20px 60px
         rgba(0,0,0,.45),
 
@@ -460,18 +509,47 @@ body::after {
 
     backdrop-filter:
         blur(15px);
+
+    animation:
+        cardIn .8s ease;
+
 }
 
+
+@keyframes cardIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
 .maintenance-icon {
+
     font-size: 31px;
 
     margin-bottom: 10px;
 
     animation:
-        blink
-        1.5s
-        infinite;
+        blink 1.5s infinite;
+
 }
+
 
 @keyframes blink {
 
@@ -482,9 +560,12 @@ body::after {
     50% {
         opacity: .45;
     }
+
 }
 
+
 .maintenance h2 {
+
     margin:
         0 0 9px;
 
@@ -496,9 +577,12 @@ body::after {
     text-shadow:
         0 0 20px
         rgba(255,106,0,.4);
+
 }
 
+
 .maintenance p {
+
     margin: 0;
 
     color: #aaa;
@@ -506,9 +590,16 @@ body::after {
     font-size: 13px;
 
     line-height: 1.7;
+
 }
 
+
+/* =========================
+   STATUS
+========================= */
+
 .status {
+
     display: inline-flex;
 
     align-items: center;
@@ -536,10 +627,14 @@ body::after {
     font-weight: 800;
 
     letter-spacing: 1px;
+
 }
 
+
 .status-dot {
+
     width: 7px;
+
     height: 7px;
 
     border-radius: 50%;
@@ -551,12 +646,17 @@ body::after {
         #ff6a00;
 
     animation:
-        blink
-        1.3s
-        infinite;
+        blink 1.3s infinite;
+
 }
 
+
+/* =========================
+   DISCORD INVITE
+========================= */
+
 .discord-invite {
+
     display: inline-flex;
 
     align-items: center;
@@ -586,9 +686,12 @@ body::after {
         rgba(88,101,242,.4);
 
     transition: .3s;
+
 }
 
+
 .discord-invite:hover {
+
     background:
         rgba(88,101,242,.28);
 
@@ -601,9 +704,16 @@ body::after {
     box-shadow:
         0 10px 30px
         rgba(88,101,242,.2);
+
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .hero-buttons {
+
     display: flex;
 
     flex-wrap: wrap;
@@ -613,9 +723,12 @@ body::after {
     gap: 11px;
 
     margin-top: 10px;
+
 }
 
+
 .btn {
+
     display: inline-flex;
 
     align-items: center;
@@ -629,25 +742,23 @@ body::after {
 
     border-radius: 10px;
 
-    border: 0;
-
     text-decoration: none;
-
-    font-family: inherit;
 
     font-size: 13px;
 
     font-weight: 800;
 
-    cursor: pointer;
-
     transition: .3s;
+
 }
 
+
 .btn-primary {
+
     color: #050505;
 
     background:
+
         linear-gradient(
             135deg,
             #ff8533,
@@ -657,18 +768,24 @@ body::after {
     box-shadow:
         0 8px 25px
         rgba(255,106,0,.2);
+
 }
 
+
 .btn-primary:hover {
+
     transform:
         translateY(-3px);
 
     box-shadow:
         0 12px 35px
         rgba(255,106,0,.35);
+
 }
 
+
 .btn-secondary {
+
     color: #ddd;
 
     background:
@@ -677,9 +794,12 @@ body::after {
     border:
         1px solid
         rgba(255,255,255,.1);
+
 }
 
+
 .btn-secondary:hover {
+
     color: white;
 
     border-color:
@@ -690,940 +810,16 @@ body::after {
 
     transform:
         translateY(-3px);
+
 }
 
 
-/* =========================================================
-   GENERAL PAGE HEADER
-========================================================= */
-
-.page-header {
-    text-align: center;
-
-    padding:
-        65px 20px 40px;
-}
-
-.badge {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding:
-        8px 15px;
-
-    border-radius: 999px;
-
-    background:
-        rgba(255,106,0,.08);
-
-    border:
-        1px solid
-        rgba(255,106,0,.28);
-
-    color: #ff9655;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-}
-
-.page-header h1 {
-    margin:
-        18px 0 10px;
-
-    font-size:
-        clamp(42px, 7vw, 68px);
-
-    font-weight: 950;
-
-    letter-spacing: -2px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #fff,
-            #ffbd83,
-            #ff6a00
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-.page-header p {
-    max-width: 620px;
-
-    margin: auto;
-
-    color: #999;
-
-    line-height: 1.7;
-
-    font-size: 14px;
-}
-
-
-/* =========================================================
-   INFO
-========================================================= */
-
-.info-container {
-    width:
-        min(1050px, 92%);
-
-    margin: auto;
-
-    padding:
-        0 0 90px;
-}
-
-.info-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 20px;
-}
-
-.card {
-    padding: 28px;
-
-    border-radius: 21px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(25,25,25,.88),
-            rgba(7,7,7,.82)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    backdrop-filter:
-        blur(15px);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.4);
-
-    transition: .35s;
-}
-
-.card:hover {
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(255,106,0,.35);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.55),
-
-        0 0 30px
-        rgba(255,106,0,.08);
-}
-
-.card-icon {
-    width: 54px;
-    height: 54px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 16px;
-
-    background:
-        rgba(255,106,0,.09);
-
-    border:
-        1px solid
-        rgba(255,106,0,.2);
-
-    font-size: 26px;
-
-    margin-bottom: 18px;
-}
-
-.card h2 {
-    margin:
-        0 0 9px;
-
-    font-size: 23px;
-}
-
-.card-description {
-    margin: 0;
-
-    color: #999;
-
-    line-height: 1.7;
-
-    font-size: 13px;
-}
-
-.modes {
-    display: grid;
-
-    gap: 11px;
-
-    margin-top: 20px;
-}
-
-.mode {
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    padding: 14px;
-
-    border-radius: 12px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    transition: .25s;
-}
-
-.mode:hover {
-    transform:
-        translateX(5px);
-
-    background:
-        rgba(255,106,0,.07);
-
-    border-color:
-        rgba(255,106,0,.22);
-}
-
-.mode-icon {
-    width: 35px;
-    height: 35px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 10px;
-
-    background:
-        rgba(255,106,0,.1);
-
-    font-size: 18px;
-}
-
-.mode-info {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-}
-
-.mode-name {
-    color: #eee;
-
-    font-size: 13px;
-
-    font-weight: 800;
-}
-
-.mode-status {
-    color: #777;
-
-    font-size: 10px;
-}
-
-.steps {
-    display: grid;
-
-    gap: 15px;
-
-    margin-top: 20px;
-}
-
-.step {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 14px;
-}
-
-.number {
-    flex-shrink: 0;
-
-    width: 32px;
-    height: 32px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 10px;
-
-    background:
-        rgba(255,106,0,.12);
-
-    border:
-        1px solid
-        rgba(255,106,0,.2);
-
-    color: #ff7620;
-
-    font-size: 12px;
-
-    font-weight: 900;
-}
-
-.step-content {
-    padding-top: 3px;
-}
-
-.step-content strong {
-    display: block;
-
-    color: #eee;
-
-    font-size: 13px;
-
-    margin-bottom: 3px;
-}
-
-.step-content span {
-    color: #777;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-.status-card {
-    grid-column:
-        1 / -1;
-
-    text-align: center;
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,106,0,.08),
-            rgba(255,255,255,.025)
-        );
-
-    border:
-        1px solid
-        rgba(255,106,0,.2);
-}
-
-.status-icon {
-    font-size: 34px;
-
-    margin-bottom: 8px;
-
-    animation:
-        pulse
-        1.6s
-        infinite;
-}
-
-@keyframes pulse {
-
-    0%,100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.08);
-        opacity: .65;
-    }
-}
-
-.status-card h2 {
-    margin:
-        0 0 8px;
-
-    color: #ff7620;
-
-    font-size: 23px;
-}
-
-.status-card p {
-    margin: 0;
-
-    color: #999;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-}
-
-.status-pill {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 17px;
-
-    padding:
-        8px 15px;
-
-    border-radius: 999px;
-
-    background:
-        rgba(255,255,255,.04);
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    color: #aaa;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-}
-
-
-/* =========================================================
-   RANKS
-========================================================= */
-
-.ranks-container {
-    width:
-        min(1150px, 92%);
-
-    margin: auto;
-
-    padding-bottom: 80px;
-}
-
-.ranks {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
-
-    gap: 22px;
-}
-
-.rank-box {
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-
-    min-height: 440px;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(27,27,27,.88),
-            rgba(7,7,7,.78)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    backdrop-filter:
-        blur(15px);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.4);
-
-    transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
-}
-
-.rank-box:hover {
-    transform:
-        translateY(-9px);
-
-    border-color:
-        rgba(255,106,0,.42);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.65),
-
-        0 0 35px
-        rgba(255,106,0,.1);
-}
-
-.rank-box::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: 15%;
-    right: 15%;
-
-    height: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ff6a00,
-            transparent
-        );
-
-    box-shadow:
-        0 0 15px
-        #ff6a00;
-
-    opacity: .7;
-
-    z-index: 2;
-}
-
-.rank-image {
-    position: relative;
-
-    width: 100%;
-    height: 240px;
-
-    overflow: hidden;
-
-    background: #111;
-}
-
-.rank-image::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(7,7,7,.95),
-            transparent 60%
-        );
-}
-
-.rank-box img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition:
-        transform .5s ease,
-        filter .5s ease;
-}
-
-.rank-box:hover img {
-    transform:
-        scale(1.08);
-
-    filter:
-        brightness(1.12)
-        saturate(1.15);
-}
-
-.rank-content {
-    display: flex;
-
-    flex-direction: column;
-
-    flex: 1;
-
-    padding: 20px;
-}
-
-.rank-box h2 {
-    margin:
-        0 0 7px;
-
-    text-align: center;
-
-    font-size: 23px;
-}
-
-.price {
-    text-align: center;
-
-    margin-bottom: 17px;
-
-    font-size: 25px;
-
-    font-weight: 900;
-
-    color: #ff7620;
-
-    text-shadow:
-        0 0 15px
-        rgba(255,106,0,.35);
-}
-
-.features {
-    list-style: none;
-
-    margin: 0;
-    padding: 0;
-
-    color: #aaa;
-
-    font-size: 13px;
-
-    line-height: 1.9;
-}
-
-.features li {
-    padding: 3px 0;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.035);
-}
-
-.features li::before {
-    content: "✦";
-
-    margin-right: 8px;
-
-    color: #ff6a00;
-}
-
-.purchase-btn {
-    margin-top: auto;
-
-    width: 100%;
-
-    padding: 12px;
-
-    border-radius: 10px;
-
-    border:
-        1px solid
-        rgba(255,106,0,.18);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,106,0,.12),
-            rgba(255,106,0,.05)
-        );
-
-    color: #ff9655;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    text-align: center;
-
-    opacity: .78;
-}
-
-.notice {
-    width:
-        min(700px, 100%);
-
-    margin:
-        45px auto 0;
-
-    padding:
-        18px 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    border-radius: 14px;
-
-    background:
-        rgba(255,106,0,.06);
-
-    border:
-        1px solid
-        rgba(255,106,0,.2);
-
-    color: #aaa;
-
-    text-align: center;
-
-    font-size: 13px;
-}
-
-.notice strong {
-    color: #ff7620;
-}
-
-
-/* =========================================================
-   DONATE
-========================================================= */
-
-.donate-main {
-    min-height:
-        calc(100vh - 75px);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding:
-        70px 20px 90px;
-}
-
-.donate-card {
-    width:
-        min(560px, 100%);
-
-    padding:
-        38px 30px;
-
-    text-align: center;
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(25,25,25,.9),
-            rgba(7,7,7,.84)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-
-    backdrop-filter:
-        blur(18px);
-
-    box-shadow:
-        0 30px 90px
-        rgba(0,0,0,.65),
-
-        0 0 40px
-        rgba(255,106,0,.07);
-}
-
-.heart {
-    width: 62px;
-    height: 62px;
-
-    margin:
-        0 auto 18px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 18px;
-
-    background:
-        rgba(255,106,0,.1);
-
-    border:
-        1px solid
-        rgba(255,106,0,.25);
-
-    font-size: 29px;
-
-    box-shadow:
-        0 0 30px
-        rgba(255,106,0,.12);
-
-    animation:
-        heartbeat
-        1.8s
-        ease-in-out
-        infinite;
-}
-
-@keyframes heartbeat {
-
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
-}
-
-.donate-card h1 {
-    margin: 0;
-
-    font-size:
-        clamp(34px, 7vw, 52px);
-
-    font-weight: 950;
-
-    letter-spacing: -1.5px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #fff,
-            #ffb36d,
-            #ff6a00
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-.subtitle {
-    margin:
-        10px auto 28px;
-
-    max-width: 470px;
-
-    color: #999;
-
-    line-height: 1.7;
-
-    font-size: 14px;
-}
-
-.qr-wrapper {
-    width: 270px;
-    max-width: 85vw;
-
-    margin:
-        25px auto;
-
-    padding: 12px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.1),
-            rgba(255,255,255,.03)
-        );
-
-    border:
-        1px solid
-        rgba(255,106,0,.3);
-
-    box-shadow:
-        0 0 35px
-        rgba(255,106,0,.1);
-}
-
-.qr-wrapper img {
-    display: block;
-
-    width: 100%;
-
-    aspect-ratio: 1 / 1;
-
-    object-fit: contain;
-
-    border-radius: 12px;
-
-    background: white;
-}
-
-.scan-text {
-    margin-top: 20px;
-
-    color: #eee;
-
-    font-size: 15px;
-
-    font-weight: 700;
-}
-
-.small-text {
-    margin-top: 8px;
-
-    color: #777;
-
-    font-size: 12px;
-
-    line-height: 1.6;
-}
-
-.support-box {
-    margin-top: 28px;
-
-    padding: 17px;
-
-    border-radius: 14px;
-
-    background:
-        rgba(255,106,0,.055);
-
-    border:
-        1px solid
-        rgba(255,106,0,.16);
-
-    color: #aaa;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-}
-
-.support-box strong {
-    color: #ff7620;
-}
-
-
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 .footer {
+
     padding: 25px;
 
     text-align: center;
@@ -1638,154 +834,163 @@ body::after {
 
     background:
         rgba(0,0,0,.35);
+
 }
+
 
 .footer strong {
+
     color: #ff6a00;
+
 }
 
 
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media(max-width:700px) {
 
     .navbar {
+
         padding:
             14px 18px;
+
     }
+
 
     .logo {
+
         font-size: 17px;
+
     }
+
 
     .nav-links {
-        gap: 10px;
+
+        gap: 12px;
+
     }
 
-    .nav-links button {
-        font-size: 10px;
+
+    .nav-links a {
+
+        font-size: 11px;
+
     }
+
 
     .hero {
+
         min-height:
             calc(100vh - 65px);
 
         padding:
             35px 15px 60px;
+
     }
+
 
     .hero h1 {
+
         letter-spacing:
             -1.5px;
+
     }
 
-    .hero-description {
+
+    .hero > p {
+
         font-size: 14px;
+
     }
+
 
     .maintenance {
+
         padding:
             24px 17px;
+
     }
+
 
     .hero-buttons {
+
         width: 100%;
+
     }
+
 
     .btn {
-        min-width: 125px;
+
+        min-width:
+            125px;
+
     }
 
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .status-card {
-        grid-column: auto;
-    }
-
-    .card {
-        padding: 23px;
-    }
-
-    .page-header {
-        padding-top: 45px;
-    }
-
-    .ranks {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .rank-image {
-        height: 230px;
-    }
-
-    .donate-main {
-        padding:
-            45px 15px 70px;
-    }
-
-    .donate-card {
-        padding:
-            30px 18px;
-    }
-
-    .qr-wrapper {
-        width: 250px;
-    }
 }
+
+
+/* =========================
+   SMALL PHONES
+========================= */
 
 @media(max-width:400px) {
 
     .logo {
+
         font-size: 15px;
+
     }
+
 
     .nav-links {
-        gap: 7px;
+
+        gap: 9px;
+
     }
 
-    .nav-links button {
-        font-size: 9px;
+
+    .nav-links a {
+
+        font-size: 10px;
+
     }
+
 
     .hero h1 {
+
         font-size: 40px;
+
     }
 
-    .page-header h1 {
-        font-size: 41px;
+
+    .maintenance h2 {
+
+        font-size: 21px;
+
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
-     PAGE TRANSITION
-========================================================= -->
-
-<div id="transition"></div>
-
-
-<!-- =========================================================
+<!-- =========================
      PARTICLES
-========================================================= -->
+========================= -->
 
 <canvas id="particles"></canvas>
 
 
-<!-- =========================================================
+<!-- =========================
      NAVBAR
-========================================================= -->
+========================= -->
 
 <header class="navbar">
 
@@ -1793,820 +998,142 @@ body::after {
         🔥 FBVerse
     </div>
 
+
     <nav class="nav-links">
 
-        <button
-            class="nav-btn active"
-            data-page="home"
-        >
-            🏠 Home
-        </button>
-
-        <button
-            class="nav-btn"
-            data-page="info"
-        >
+        <a href="info.html">
             🔸 Server Info
-        </button>
+        </a>
 
-        <button
-            class="nav-btn"
-            data-page="ranks"
-        >
-            🏆 Ranks
-        </button>
 
-        <button
-            class="nav-btn"
-            data-page="donate"
-        >
+        <a href="ranks.html">
+            🏆 Rank
+        </a>
+
+
+        <a href="donate.html">
             ❤️ Donate
-        </button>
+        </a>
 
     </nav>
 
 </header>
 
 
-<!-- =========================================================
-     HOME PAGE
-========================================================= -->
+<!-- =========================
+     HERO
+========================= -->
 
-<section
-    id="home"
-    class="page active"
->
-
-    <main class="hero">
-
-        <div class="fire-icon">
-            🔥
-        </div>
-
-        <h1>
-            Fire Blaze Verse
-        </h1>
-
-        <p class="hero-description">
-            The Ultimate Minecraft Experience
-            is being prepared for you.
-        </p>
+<main class="hero">
 
 
-        <div class="maintenance">
+    <div class="fire-icon">
+        🔥
+    </div>
 
-            <div class="maintenance-icon">
-                🚧
-            </div>
 
-            <h2>
-                SERVER IN MAINTENANCE
-            </h2>
+    <h1>
+        Fire Blaze Verse
+    </h1>
 
-            <p>
-                We're working behind the scenes
-                to make Fire Blaze Verse even better.
-                <br>
-                Get ready for the launch.
-            </p>
 
-            <div class="status">
+    <p>
+        The Ultimate Minecraft Experience
+        is being prepared for you.
+    </p>
 
-                <span class="status-dot"></span>
 
-                COMING SOON
+    <!-- =========================
+         MAINTENANCE CARD
+    ========================= -->
 
-            </div>
+    <div class="maintenance">
 
-            <a
-                href="https://discord.gg/F57YGWTVyH"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="discord-invite"
-            >
-                💬 Join our Discord
-            </a>
 
+        <div class="maintenance-icon">
+            🚧
         </div>
 
 
-        <div class="hero-buttons">
+        <h2>
+            SERVER IN MAINTENANCE
+        </h2>
 
-            <button
-                class="btn btn-primary"
-                data-page="info"
-            >
-                🔸 Server Info
-            </button>
-
-            <button
-                class="btn btn-secondary"
-                data-page="ranks"
-            >
-                🏆 View Ranks
-            </button>
-
-            <button
-                class="btn btn-secondary"
-                data-page="donate"
-            >
-                ❤️ Support Us
-            </button>
-
-        </div>
-
-    </main>
-
-</section>
-
-
-<!-- =========================================================
-     SERVER INFO PAGE
-========================================================= -->
-
-<section
-    id="info"
-    class="page"
->
-
-    <section class="page-header">
-
-        <div class="badge">
-            Server Information
-        </div>
-
-        <h1>
-            Fire Blaze Verse
-        </h1>
 
         <p>
-            Your ultimate guide to joining,
-            playing and exploring the
-            Fire Blaze Verse Minecraft network.
+            We're working behind the scenes
+            to make Fire Blaze Verse even better.
+            <br>
+            Get ready for the launch.
         </p>
 
-    </section>
 
+        <!-- STATUS -->
 
-    <main class="info-container">
-
-        <div class="info-grid">
-
-
-            <!-- GAME MODES -->
-
-            <section class="card">
-
-                <div class="card-icon">
-                    🎮
-                </div>
-
-                <h2>
-                    Game Modes
-                </h2>
-
-                <p class="card-description">
-                    Choose your way to play.
-                    More exciting modes will be
-                    added as the network grows.
-                </p>
-
-                <div class="modes">
-
-                    <div class="mode">
-
-                        <div class="mode-icon">
-                            🌳
-                        </div>
-
-                        <div class="mode-info">
-
-                            <div class="mode-name">
-                                Survival SMP
-                            </div>
-
-                            <div class="mode-status">
-                                Coming Soon
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="mode">
-
-                        <div class="mode-icon">
-                            ⚔️
-                        </div>
-
-                        <div class="mode-info">
-
-                            <div class="mode-name">
-                                Lifesteal PvP
-                            </div>
-
-                            <div class="mode-status">
-                                Coming Soon
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="mode">
-
-                        <div class="mode-icon">
-                            🏹
-                        </div>
-
-                        <div class="mode-info">
-
-                            <div class="mode-name">
-                                More Modes
-                            </div>
-
-                            <div class="mode-status">
-                                Coming Soon
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- HOW TO JOIN -->
-
-            <section class="card">
-
-                <div class="card-icon">
-                    🎮
-                </div>
-
-                <h2>
-                    How to Join
-                </h2>
-
-                <p class="card-description">
-                    Joining Fire Blaze Verse will
-                    only take a few simple steps.
-                </p>
-
-                <div class="steps">
-
-
-                    <div class="step">
-
-                        <div class="number">
-                            01
-                        </div>
-
-                        <div class="step-content">
-
-                            <strong>
-                                Open Minecraft
-                            </strong>
-
-                            <span>
-                                Launch Minecraft and open
-                                the Multiplayer menu.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="number">
-                            02
-                        </div>
-
-                        <div class="step-content">
-
-                            <strong>
-                                Add the Server
-                            </strong>
-
-                            <span>
-                                Select "Add Server" and enter
-                                the server address.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="number">
-                            03
-                        </div>
-
-                        <div class="step-content">
-
-                            <strong>
-                                Save & Connect
-                            </strong>
-
-                            <span>
-                                Save the server and connect
-                                once the server is online.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="number">
-                            04
-                        </div>
-
-                        <div class="step-content">
-
-                            <strong>
-                                Start Playing
-                            </strong>
-
-                            <span>
-                                Enter the world and enjoy
-                                Fire Blaze Verse!
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- STATUS -->
-
-            <section class="status-card">
-
-                <div class="status-icon">
-                    🚧
-                </div>
-
-                <h2>
-                    Server In Maintenance
-                </h2>
-
-                <p>
-                    Fire Blaze Verse is currently
-                    under development.
-                    <br>
-                    The server address will be revealed
-                    when the server officially launches.
-                </p>
-
-                <div class="status-pill">
-
-                    <span class="status-dot"></span>
-
-                    COMING SOON
-
-                </div>
-
-            </section>
-
-        </div>
-
-
-        <div style="text-align:center;">
-
-            <button
-                class="btn btn-secondary"
-                data-page="home"
-                style="margin-top:35px;"
-            >
-                ← Back to Home
-            </button>
-
-        </div>
-
-    </main>
-
-</section>
-
-
-<!-- =========================================================
-     RANKS PAGE
-========================================================= -->
-
-<section
-    id="ranks"
-    class="page"
->
-
-    <section class="page-header">
-
-        <div class="badge">
+        <div class="status">
 
             <span class="status-dot"></span>
 
-            Fire Blaze Shop
+            COMING SOON
 
         </div>
 
-        <h1>
-            Choose Your Clan
-        </h1>
 
-        <p>
-            Upgrade your Fire Blaze Verse experience
-            and unlock exclusive clan ranks.
-        </p>
+        <!-- DISCORD -->
 
-    </section>
+        <a
+            href="https://discord.gg/F57YGWTVyH"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="discord-invite"
+        >
+            💬 Join our Discord
+        </a>
 
 
-    <main class="ranks-container">
+    </div>
 
-        <div class="ranks">
 
+    <!-- =========================
+         BUTTONS
+    ========================= -->
 
-            <!-- DIRT -->
+    <div class="hero-buttons">
 
-            <div class="rank-box">
 
-                <div class="rank-image">
+        <a
+            href="info.html"
+            class="btn btn-primary"
+        >
+            🔸 Server Info
+        </a>
 
-                    <img
-                        src="images/dirt.jpg"
-                        alt="Dirt Clan"
-                    >
 
-                </div>
+        <a
+            href="ranks.html"
+            class="btn btn-secondary"
+        >
+            🏆 View Ranks
+        </a>
 
-                <div class="rank-content">
 
-                    <h2>
-                        Dirt Clan
-                    </h2>
+        <a
+            href="donate.html"
+            class="btn btn-secondary"
+        >
+            ❤️ Support Us
+        </a>
 
-                    <div class="price">
-                        ₹29
-                    </div>
 
-                    <ul class="features">
+    </div>
 
-                        <li>Clan Rank</li>
-                        <li>Exclusive Prefix</li>
-                        <li>Special Chat Tag</li>
 
-                    </ul>
+</main>
 
-                    <div class="purchase-btn">
-                        🚧 Coming Soon
-                    </div>
 
-                </div>
-
-            </div>
-
-
-            <!-- COPPER -->
-
-            <div class="rank-box">
-
-                <div class="rank-image">
-
-                    <img
-                        src="images/copper.jpg"
-                        alt="Copper Clan"
-                    >
-
-                </div>
-
-                <div class="rank-content">
-
-                    <h2>
-                        Copper Clan
-                    </h2>
-
-                    <div class="price">
-                        ₹59
-                    </div>
-
-                    <ul class="features">
-
-                        <li>Clan Rank</li>
-                        <li>Exclusive Prefix</li>
-                        <li>Special Chat Tag</li>
-
-                    </ul>
-
-                    <div class="purchase-btn">
-                        🚧 Coming Soon
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- IRON -->
-
-            <div class="rank-box">
-
-                <div class="rank-image">
-
-                    <img
-                        src="images/iron.jpg"
-                        alt="Iron Clan"
-                    >
-
-                </div>
-
-                <div class="rank-content">
-
-                    <h2>
-                        Iron Clan
-                    </h2>
-
-                    <div class="price">
-                        ₹89
-                    </div>
-
-                    <ul class="features">
-
-                        <li>Premium Clan Rank</li>
-                        <li>Exclusive Prefix</li>
-                        <li>Special Chat Tag</li>
-
-                    </ul>
-
-                    <div class="purchase-btn">
-                        🚧 Coming Soon
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- GOLD -->
-
-            <div class="rank-box">
-
-                <div class="rank-image">
-
-                    <img
-                        src="images/gold.jpg"
-                        alt="Gold Clan"
-                    >
-
-                </div>
-
-                <div class="rank-content">
-
-                    <h2>
-                        Gold Clan
-                    </h2>
-
-                    <div class="price">
-                        ₹159
-                    </div>
-
-                    <ul class="features">
-
-                        <li>Premium Clan Rank</li>
-                        <li>Exclusive Prefix</li>
-                        <li>Special Chat Tag</li>
-
-                    </ul>
-
-                    <div class="purchase-btn">
-                        🚧 Coming Soon
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- DIAMOND -->
-
-            <div class="rank-box">
-
-                <div class="rank-image">
-
-                    <img
-                        src="images/diamond.jpg"
-                        alt="Diamond Clan"
-                    >
-
-                </div>
-
-                <div class="rank-content">
-
-                    <h2>
-                        Diamond Clan
-                    </h2>
-
-                    <div class="price">
-                        ₹299
-                    </div>
-
-                    <ul class="features">
-
-                        <li>Elite Clan Rank</li>
-                        <li>Exclusive Prefix</li>
-                        <li>Special Chat Tag</li>
-
-                    </ul>
-
-                    <div class="purchase-btn">
-                        🚧 Coming Soon
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- NETHERITE -->
-
-            <div class="rank-box">
-
-                <div class="rank-image">
-
-                    <img
-                        src="images/netherite.jpg"
-                        alt="Netherite Clan"
-                    >
-
-                </div>
-
-                <div class="rank-content">
-
-                    <h2>
-                        Netherite Clan
-                    </h2>
-
-                    <div class="price">
-                        ₹1999
-                    </div>
-
-                    <ul class="features">
-
-                        <li>Ultimate Clan Rank</li>
-                        <li>Exclusive Prefix</li>
-                        <li>Special Chat Tag</li>
-
-                    </ul>
-
-                    <div class="purchase-btn">
-                        🚧 Coming Soon
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="notice">
-
-            🚧
-
-            <span>
-
-                <strong>
-                    Rank purchases are currently unavailable.
-                </strong>
-
-                The Fire Blaze Verse store will open
-                with the server launch.
-
-            </span>
-
-        </div>
-
-
-        <div style="text-align:center;">
-
-            <button
-                class="btn btn-secondary"
-                data-page="home"
-                style="margin-top:35px;"
-            >
-                ← Back to Home
-            </button>
-
-        </div>
-
-    </main>
-
-</section>
-
-
-<!-- =========================================================
-     DONATE PAGE
-========================================================= -->
-
-<section
-    id="donate"
-    class="page"
->
-
-    <main class="donate-main">
-
-        <section class="donate-card">
-
-            <div class="heart">
-                ❤️
-            </div>
-
-            <h1>
-                Support Us
-            </h1>
-
-            <p class="subtitle">
-
-                Help support the development
-                and maintenance of
-                <strong>Fire Blaze Verse</strong>.
-
-                Every contribution helps us
-                improve the server and
-                create a better experience.
-
-            </p>
-
-
-            <div class="qr-wrapper">
-
-                <img
-                    src="images/qr.png"
-                    alt="Fire Blaze Verse Donation QR Code"
-                >
-
-            </div>
-
-
-            <div class="scan-text">
-                📱 Scan the QR code to support us
-            </div>
-
-            <div class="small-text">
-
-                Use any supported UPI app to make
-                a voluntary contribution.
-
-            </div>
-
-
-            <div class="support-box">
-
-                🔥
-
-                <strong>
-                    Thank you for supporting
-                    Fire Blaze Verse!
-                </strong>
-
-                <br>
-
-                Your support helps us with server
-                hosting, development and future
-                improvements.
-
-            </div>
-
-
-            <button
-                class="btn btn-secondary"
-                data-page="home"
-                style="margin-top:25px;"
-            >
-                ← Back to Home
-            </button>
-
-        </section>
-
-    </main>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =========================
      FOOTER
-========================================================= -->
+========================= -->
 
 <footer class="footer">
 
@@ -2621,213 +1148,21 @@ body::after {
 </footer>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
+<!-- =========================
+     PARTICLES JAVASCRIPT
+========================= -->
 
 <script>
-
-/* =========================================================
-   PAGE NAVIGATION
-========================================================= */
-
-const pages =
-    document.querySelectorAll(".page");
-
-const navButtons =
-    document.querySelectorAll(".nav-btn");
-
-const transition =
-    document.getElementById("transition");
-
-
-function showPage(pageName) {
-
-    const currentPage =
-        document.querySelector(".page.active");
-
-    const nextPage =
-        document.getElementById(pageName);
-
-
-    if (!nextPage) {
-        return;
-    }
-
-
-    if (
-        currentPage === nextPage
-    ) {
-        return;
-    }
-
-
-    /* Transition flash */
-
-    transition.classList.remove("active");
-
-    void transition.offsetWidth;
-
-    transition.classList.add("active");
-
-
-    /* Fade current page */
-
-    currentPage.style.animation =
-        "none";
-
-    currentPage.offsetHeight;
-
-    currentPage.style.opacity =
-        "0";
-
-    currentPage.style.transform =
-        "translateY(-15px) scale(.99)";
-
-    currentPage.style.filter =
-        "blur(5px)";
-
-
-    setTimeout(() => {
-
-        /* Hide all */
-
-        pages.forEach(page => {
-
-            page.classList.remove(
-                "active"
-            );
-
-            page.style.opacity = "";
-            page.style.transform = "";
-            page.style.filter = "";
-            page.style.animation = "";
-
-        });
-
-
-        /* Show new page */
-
-        nextPage.classList.add(
-            "active"
-        );
-
-
-        /* Scroll to top */
-
-        window.scrollTo({
-            top: 0,
-            behavior: "instant"
-        });
-
-
-        /* Update navigation */
-
-        navButtons.forEach(button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.page === pageName
-            );
-
-        });
-
-    }, 300);
-
-}
-
-
-/* =========================================================
-   NAV BUTTONS
-========================================================= */
-
-document
-.querySelectorAll("[data-page]")
-.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            showPage(
-                button.dataset.page
-            );
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   BROWSER BACK / FORWARD
-========================================================= */
-
-window.addEventListener(
-    "popstate",
-    () => {
-
-        const page =
-            location.hash.replace("#", "")
-            || "home";
-
-        showPage(page);
-
-    }
-);
-
-
-/* =========================================================
-   HASH SUPPORT
-========================================================= */
-
-function initialPage() {
-
-    const page =
-        location.hash.replace("#", "")
-        || "home";
-
-
-    const target =
-        document.getElementById(page);
-
-
-    if (target) {
-
-        pages.forEach(p =>
-            p.classList.remove("active")
-        );
-
-        target.classList.add("active");
-
-
-        navButtons.forEach(button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.page === page
-            );
-
-        });
-
-    }
-
-}
-
-initialPage();
-
-
-/* =========================================================
-   PARTICLES
-========================================================= */
 
 const canvas =
     document.getElementById(
         "particles"
     );
 
+
 const ctx =
     canvas.getContext("2d");
+
 
 let particles = [];
 
@@ -2850,8 +1185,8 @@ function createParticles() {
 
     const amount =
         window.innerWidth < 600
-            ? 35
-            : 85;
+        ? 35
+        : 85;
 
 
     for (
@@ -2903,77 +1238,88 @@ function drawParticles() {
     );
 
 
-    particles.forEach(p => {
+    particles.forEach(
+        p => {
 
-        ctx.beginPath();
-
-
-        ctx.arc(
-            p.x,
-            p.y,
-            p.r,
-            0,
-            Math.PI * 2
-        );
+            ctx.beginPath();
 
 
-        ctx.fillStyle =
-            `rgba(
-                255,
-                120,
-                30,
-                ${p.opacity}
-            )`;
+            ctx.arc(
+                p.x,
+                p.y,
+                p.r,
+                0,
+                Math.PI * 2
+            );
 
 
-        ctx.shadowBlur =
-            10;
-
-        ctx.shadowColor =
-            "rgba(255,90,0,.5)";
-
-
-        ctx.fill();
-
-
-        ctx.shadowBlur = 0;
+            ctx.fillStyle =
+                `rgba(
+                    255,
+                    120,
+                    30,
+                    ${p.opacity}
+                )`;
 
 
-        p.y -= p.speed;
+            ctx.shadowBlur =
+                10;
 
-        p.x += p.drift;
+
+            ctx.shadowColor =
+                "rgba(255,90,0,.5)";
 
 
-        if (p.y < -10) {
+            ctx.fill();
 
-            p.y =
-                canvas.height + 10;
 
-            p.x =
-                Math.random()
-                * canvas.width;
+            ctx.shadowBlur =
+                0;
+
+
+            p.y -=
+                p.speed;
+
+
+            p.x +=
+                p.drift;
+
+
+            if (
+                p.y < -10
+            ) {
+
+                p.y =
+                    canvas.height + 10;
+
+                p.x =
+                    Math.random()
+                    * canvas.width;
+
+            }
+
+
+            if (
+                p.x < -10
+            ) {
+
+                p.x =
+                    canvas.width + 10;
+
+            }
+
+
+            if (
+                p.x >
+                canvas.width + 10
+            ) {
+
+                p.x = -10;
+
+            }
 
         }
-
-
-        if (p.x < -10) {
-
-            p.x =
-                canvas.width + 10;
-
-        }
-
-
-        if (
-            p.x >
-            canvas.width + 10
-        ) {
-
-            p.x = -10;
-
-        }
-
-    });
+    );
 
 
     requestAnimationFrame(
@@ -2992,7 +1338,7 @@ drawParticles();
 
 window.addEventListener(
     "resize",
-    () => {
+    function () {
 
         resizeCanvas();
 
@@ -3003,5 +1349,7 @@ window.addEventListener(
 
 </script>
 
+
 </body>
-     </html>
+
+</html>
