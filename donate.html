@@ -1,5 +1,6 @@
-Donate - <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -10,9 +11,14 @@ Donate - <!DOCTYPE html>
 <meta name="google-adsense-account"
       content="ca-pub-5709038508572445">
 
+<!-- =========================
+     GOOGLE ADSENSE
+========================= -->
+
 <script async
 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5709038508572445"
 crossorigin="anonymous"></script>
+
 
 <style>
 
@@ -141,9 +147,11 @@ body::after {
         1px solid
         rgba(255,106,0,.16);
 
-    backdrop-filter: blur(18px);
+    backdrop-filter:
+        blur(18px);
 
-    -webkit-backdrop-filter: blur(18px);
+    -webkit-backdrop-filter:
+        blur(18px);
 }
 
 
@@ -153,23 +161,33 @@ body::after {
 
     font-weight: 900;
 
+    color: white;
+
     text-shadow:
         0 0 15px
         rgba(255,106,0,.65);
 }
 
 
-.back-btn {
+/* =========================
+   NAV LINKS
+========================= */
 
-    display: inline-flex;
+.nav-links {
+
+    display: flex;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 23px;
+}
 
-    padding: 9px 15px;
 
-    color: #ddd;
+.nav-links a {
+
+    position: relative;
+
+    color: #aaa;
 
     text-decoration: none;
 
@@ -177,31 +195,50 @@ body::after {
 
     font-weight: 700;
 
-    border:
-        1px solid
-        rgba(255,255,255,.1);
+    transition: .3s;
+}
 
-    border-radius: 9px;
 
-    background:
-        rgba(255,255,255,.05);
+.nav-links a:hover {
+
+    color: white;
+}
+
+
+.nav-links a.active {
+
+    color: white;
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #ff6a00;
+
+    box-shadow:
+        0 0 10px
+        #ff6a00;
 
     transition: .3s;
 }
 
 
-.back-btn:hover {
+.nav-links a:hover::after,
+.nav-links a.active::after {
 
-    color: white;
-
-    border-color:
-        rgba(255,106,0,.45);
-
-    background:
-        rgba(255,106,0,.1);
-
-    transform:
-        translateX(-3px);
+    width: 100%;
 }
 
 
@@ -272,6 +309,7 @@ body::after {
 @keyframes cardIn {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -280,6 +318,7 @@ body::after {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -290,7 +329,7 @@ body::after {
 
 
 /* =========================
-   ICON
+   HEART ICON
 ========================= */
 
 .heart {
@@ -322,6 +361,21 @@ body::after {
     box-shadow:
         0 0 30px
         rgba(255,106,0,.12);
+
+    animation:
+        heartFloat 2.5s ease-in-out infinite;
+}
+
+
+@keyframes heartFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 
@@ -401,6 +455,23 @@ body::after {
     box-shadow:
         0 0 35px
         rgba(255,106,0,.1);
+
+    transition: .35s;
+}
+
+
+.qr-wrapper:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.02);
+
+    border-color:
+        rgba(255,106,0,.55);
+
+    box-shadow:
+        0 15px 45px
+        rgba(255,106,0,.16);
 }
 
 
@@ -482,6 +553,63 @@ body::after {
 
 
 /* =========================
+   CONTACT BUTTON
+========================= */
+
+.contact-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 20px;
+
+    padding:
+        11px 20px;
+
+    border-radius: 10px;
+
+    color: #ddd;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    transition: .3s;
+}
+
+
+.contact-btn:hover {
+
+    color: white;
+
+    border-color:
+        rgba(255,106,0,.45);
+
+    background:
+        rgba(255,106,0,.09);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,106,0,.12);
+}
+
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -514,32 +642,44 @@ body::after {
    MOBILE
 ========================= */
 
-@media(max-width:600px) {
+@media(max-width:700px) {
 
     .navbar {
 
         padding:
             14px 18px;
+
     }
+
 
     .logo {
 
         font-size: 17px;
+
     }
 
-    .back-btn {
 
-        font-size: 12px;
+    .nav-links {
 
-        padding:
-            8px 11px;
+        gap: 12px;
+
     }
+
+
+    .nav-links a {
+
+        font-size: 10px;
+
+    }
+
 
     .main {
 
         padding:
             45px 15px 70px;
+
     }
+
 
     .donate-card {
 
@@ -547,11 +687,59 @@ body::after {
             30px 18px;
 
         border-radius: 20px;
+
     }
+
 
     .qr-wrapper {
 
         width: 250px;
+
+    }
+
+}
+
+
+@media(max-width:430px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 13px;
+
+    }
+
+
+    .logo {
+
+        font-size: 18px;
+
+    }
+
+
+    .nav-links {
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 12px;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 9px;
+
+    }
+
+
+    .donate-card h1 {
+
+        font-size: 38px;
+
     }
 
 }
@@ -563,6 +751,10 @@ body::after {
 
 <body>
 
+
+<!-- =========================
+     PARTICLES
+========================= -->
 
 <canvas id="particles"></canvas>
 
@@ -577,12 +769,29 @@ body::after {
         🔥 Fire Blaze Verse
     </div>
 
-    <a
-        href="index.html"
-        class="back-btn"
-    >
-        ← Back Home
-    </a>
+
+    <nav class="nav-links">
+
+        <a href="info.html">
+            🔸 Server Info
+        </a>
+
+
+        <a href="ranks.html">
+            🏆 Rank
+        </a>
+
+
+        <a href="donate.html" class="active">
+            ❤️ Donate
+        </a>
+
+
+        <a href="contact.html">
+            📩 Contact
+        </a>
+
+    </nav>
 
 </header>
 
@@ -619,7 +828,9 @@ body::after {
         </p>
 
 
-        <!-- QR CODE -->
+        <!-- =========================
+             QR CODE
+        ========================= -->
 
         <div class="qr-wrapper">
 
@@ -646,10 +857,17 @@ body::after {
         </div>
 
 
+        <!-- =========================
+             SUPPORT MESSAGE
+        ========================= -->
+
         <div class="support-box">
 
-            🔥 <strong>Thank you for supporting
-            Fire Blaze Verse!</strong>
+            🔥
+            <strong>
+                Thank you for supporting
+                Fire Blaze Verse!
+            </strong>
 
             <br>
 
@@ -658,6 +876,18 @@ body::after {
             improvements.
 
         </div>
+
+
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <a
+            href="contact.html"
+            class="contact-btn"
+        >
+            📩 Need Help? Contact Us
+        </a>
 
 
     </section>
@@ -683,7 +913,7 @@ body::after {
 
 
 <!-- =========================
-     PARTICLES
+     PARTICLES JAVASCRIPT
 ========================= -->
 
 <script>
@@ -818,6 +1048,24 @@ function drawParticles() {
 
         }
 
+
+        if (p.x < -10) {
+
+            p.x =
+                canvas.width + 10;
+
+        }
+
+
+        if (
+            p.x >
+            canvas.width + 10
+        ) {
+
+            p.x = -10;
+
+        }
+
     });
 
 
@@ -850,4 +1098,5 @@ window.addEventListener(
 
 
 </body>
-</html> .
+
+</html>
