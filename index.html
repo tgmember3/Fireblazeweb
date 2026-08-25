@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Fire Blaze Verse | Coming Soon</title>
@@ -33,9 +32,7 @@ if (!window.AdButler) {
         var s = document.createElement("script");
 
         s.async = true;
-
         s.type = "text/javascript";
-
         s.src = "https://servedbyadbutler.com/app.js";
 
         var n = document.getElementsByTagName("script")[0];
@@ -46,7 +43,6 @@ if (!window.AdButler) {
 
 }
 </script>
-
 
 <script>
 
@@ -59,7 +55,6 @@ AdButler.ads.push(function () {
     AdButler.enableLazyLoading({
 
         renderViewportPercent: 200,
-
         mobileScaling: 2.0
 
     });
@@ -67,25 +62,45 @@ AdButler.ads.push(function () {
 });
 
 </script>
+
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBzhoQQCioLMHSF1lqQLLRG39HqyPehYvc",
-    authDomain: "fire-blaze-4cbab.firebaseapp.com",
-    projectId: "fire-blaze-4cbab",
-    storageBucket: "fire-blaze-4cbab.firebasestorage.app",
-    messagingSenderId: "57715892228",
-    appId: "1:57715892228:web:6fe89103777fd9231cd551"
-  };
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyBzhoQQCioLMHSF1lqQLLRG39HqyPehYvc",
+
+    authDomain:
+        "fire-blaze-4cbab.firebaseapp.com",
+
+    projectId:
+        "fire-blaze-4cbab",
+
+    storageBucket:
+        "fire-blaze-4cbab.firebasestorage.app",
+
+    messagingSenderId:
+        "57715892228",
+
+    appId:
+        "1:57715892228:web:6fe89103777fd9231cd551"
+
+};
+
+const app =
+    initializeApp(firebaseConfig);
+
 </script>
+
 
 <style>
 
@@ -122,7 +137,7 @@ body {
 
 
 /* =========================
-   CINEMATIC BACKGROUND
+   BACKGROUND
 ========================= */
 
 body::before {
@@ -196,7 +211,6 @@ body::after {
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     z-index: -3;
@@ -223,6 +237,8 @@ body::after {
     align-items: center;
 
     justify-content: space-between;
+
+    gap: 20px;
 
     padding: 17px 6%;
 
@@ -253,6 +269,19 @@ body::after {
     text-shadow:
         0 0 18px
         rgba(255,106,0,.7);
+
+    white-space: nowrap;
+
+}
+
+
+.nav-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
 
 }
 
@@ -325,6 +354,75 @@ body::after {
 
 
 /* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 9px 16px;
+
+    border-radius: 9px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff8533,
+            #ff5b00
+        );
+
+    box-shadow:
+        0 7px 22px
+        rgba(255,106,0,.20);
+
+    transition: .3s;
+
+}
+
+
+.login-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,106,0,.35);
+
+}
+
+
+.login-btn svg {
+
+    width: 15px;
+    height: 15px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 2;
+
+}
+
+
+/* =========================
    HERO
 ========================= */
 
@@ -358,13 +456,11 @@ body::after {
 .fire-icon {
 
     width: 78px;
-
     height: 78px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     border-radius: 23px;
@@ -376,8 +472,6 @@ body::after {
         1px solid
         rgba(255,106,0,.3);
 
-    font-size: 39px;
-
     margin-bottom: 25px;
 
     box-shadow:
@@ -386,6 +480,25 @@ body::after {
 
     animation:
         floating 3s ease-in-out infinite;
+
+}
+
+
+.fire-icon svg {
+
+    width: 40px;
+    height: 40px;
+
+    fill: none;
+
+    stroke:
+        #ff7620;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
 
 }
 
@@ -559,9 +672,35 @@ body::after {
 
 .maintenance-icon {
 
-    font-size: 31px;
+    width: 42px;
+    height: 42px;
 
-    margin-bottom: 10px;
+    margin:
+        0 auto 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.maintenance-icon svg {
+
+    width: 34px;
+    height: 34px;
+
+    fill: none;
+
+    stroke:
+        #ff7620;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
 
     animation:
         blink 1.5s infinite;
@@ -652,7 +791,6 @@ body::after {
 .status-dot {
 
     width: 7px;
-
     height: 7px;
 
     border-radius: 50%;
@@ -670,7 +808,7 @@ body::after {
 
 
 /* =========================
-   DISCORD INVITE
+   DISCORD
 ========================= */
 
 .discord-invite {
@@ -680,6 +818,8 @@ body::after {
     align-items: center;
 
     justify-content: center;
+
+    gap: 8px;
 
     margin-top: 18px;
 
@@ -726,6 +866,20 @@ body::after {
 }
 
 
+.discord-invite svg {
+
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+}
+
+
 /* =========================
    BUTTONS
 ========================= */
@@ -753,6 +907,8 @@ body::after {
 
     justify-content: center;
 
+    gap: 8px;
+
     min-width: 140px;
 
     padding:
@@ -767,6 +923,24 @@ body::after {
     font-weight: 800;
 
     transition: .3s;
+
+}
+
+
+.btn svg {
+
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
 
 }
 
@@ -884,16 +1058,24 @@ body::after {
     }
 
 
-    .nav-links {
+    .nav-right {
 
-        gap: 12px;
+        gap: 10px;
 
     }
 
 
-    .nav-links a {
+    .nav-links {
 
-        font-size: 11px;
+        display: none;
+
+    }
+
+
+    .login-btn {
+
+        padding:
+            8px 13px;
 
     }
 
@@ -962,20 +1144,6 @@ body::after {
     }
 
 
-    .nav-links {
-
-        gap: 9px;
-
-    }
-
-
-    .nav-links a {
-
-        font-size: 10px;
-
-    }
-
-
     .hero h1 {
 
         font-size: 40px;
@@ -1013,32 +1181,67 @@ body::after {
 <header class="navbar">
 
     <div class="logo">
-        🔥 FBVerse
+        FBVerse
     </div>
 
 
-    <nav class="nav-links">
+    <div class="nav-right">
 
-        <a href="info.html">
-            🔸 Server Info
+        <nav class="nav-links">
+
+            <a href="info.html">
+                Server Info
+            </a>
+
+
+            <a href="ranks.html">
+                Ranks
+            </a>
+
+
+            <a href="donate.html">
+                Donate
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <!-- LOGIN -->
+
+        <a
+            href="signin.html"
+            class="login-btn"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
+                />
+
+                <path
+                    d="M10 17l5-5-5-5"
+                />
+
+                <path
+                    d="M15 12H3"
+                />
+
+            </svg>
+
+            Login
+
         </a>
 
-
-        <a href="ranks.html">
-            🏆 Rank
-        </a>
-
-
-        <a href="donate.html">
-            ❤️ Donate
-        </a>
-
-
-        <a href="contact.html">
-            📧 Contact
-        </a>
-
-    </nav>
+    </div>
 
 </header>
 
@@ -1050,8 +1253,26 @@ body::after {
 <main class="hero">
 
 
+    <!-- FIRE SVG -->
+
     <div class="fire-icon">
-        🔥
+
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="M12 22c4.2 0 7-2.7 7-6.7
+                   0-3.1-1.8-5.5-4.3-7.8
+                   .1 2.2-.7 3.5-1.9 4.4
+                   .3-3.9-1.8-6.8-4.7-9.9
+                   .2 3.5-2.8 6.1-2.8 10.2
+                   C5.3 18.7 8.1 22 12 22z"
+            />
+
+        </svg>
+
     </div>
 
 
@@ -1074,7 +1295,30 @@ body::after {
 
 
         <div class="maintenance-icon">
-            🚧
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M3 21h18"
+                />
+
+                <path
+                    d="M5 21V9l7-5 7 5v12"
+                />
+
+                <path
+                    d="M9 21v-6h6v6"
+                />
+
+                <path
+                    d="M9 10h.01M15 10h.01"
+                />
+
+            </svg>
+
         </div>
 
 
@@ -1084,10 +1328,14 @@ body::after {
 
 
         <p>
+
             We're working behind the scenes
             to make Fire Blaze Verse even better.
+
             <br>
+
             Get ready for the launch.
+
         </p>
 
 
@@ -1110,7 +1358,39 @@ body::after {
             rel="noopener noreferrer"
             class="discord-invite"
         >
-            💬 Join our Discord
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M7.5 7.5
+                       A9 9 0 0 1 16.5 7.5
+                       A8 8 0 0 1 19 17
+                       C17 18.5 15.2 19.2 13 19.5
+                       L12 17.8
+                       L11 19.5
+                       C8.8 19.2 7 18.5 5 17
+                       A8 8 0 0 1 7.5 7.5Z"
+                />
+
+                <circle
+                    cx="9"
+                    cy="13"
+                    r="1"
+                />
+
+                <circle
+                    cx="15"
+                    cy="13"
+                    r="1"
+                />
+
+            </svg>
+
+            Join our Discord
+
         </a>
 
 
@@ -1128,7 +1408,30 @@ body::after {
             href="info.html"
             class="btn btn-primary"
         >
-            🔸 Server Info
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                />
+
+                <path
+                    d="M12 10v6"
+                />
+
+                <path
+                    d="M12 7h.01"
+                />
+
+            </svg>
+
+            Server Info
+
         </a>
 
 
@@ -1136,7 +1439,23 @@ body::after {
             href="ranks.html"
             class="btn btn-secondary"
         >
-            🏆 View Ranks
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M12 3l2.8 5.7L21 9.6
+                       l-4.5 4.4 1.1 6.2
+                       L12 17.3 6.4 20.2
+                       l1.1-6.2L3 9.6l6.2-.9L12 3z"
+                />
+
+            </svg>
+
+            View Ranks
+
         </a>
 
 
@@ -1144,7 +1463,24 @@ body::after {
             href="donate.html"
             class="btn btn-secondary"
         >
-            ❤️ Support Us
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M20.8 8.8
+                       c0 5.5-8.8 10.2-8.8 10.2
+                       S3.2 14.3 3.2 8.8
+                       A4.8 4.8 0 0 1 12 6
+                       a4.8 4.8 0 0 1 8.8 2.8z"
+                />
+
+            </svg>
+
+            Support Us
+
         </a>
 
 
@@ -1152,7 +1488,67 @@ body::after {
             href="contact.html"
             class="btn btn-secondary"
         >
-            📧 Contact Us
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="14"
+                    rx="2"
+                />
+
+                <path
+                    d="M3 7l9 6 9-6"
+                />
+
+            </svg>
+
+            Contact Us
+
+        </a>
+
+
+        <!-- REGISTER -->
+
+        <a
+            href="signup.html"
+            class="btn btn-secondary"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <circle
+                    cx="12"
+                    cy="8"
+                    r="4"
+                />
+
+                <path
+                    d="M4 21
+                       c0-4.2 3.6-7 8-7
+                       s8 2.8 8 7"
+                />
+
+                <path
+                    d="M19 11v6"
+                />
+
+                <path
+                    d="M16 14h6"
+                />
+
+            </svg>
+
+            Register
+
         </a>
 
 
